@@ -1,0 +1,63 @@
+{
+  "verifiedAtUtc": "2026-10-29T21:32:20.450Z",
+  "origin": "https://localhost:7156",
+  "checks": [
+    "Home: real products loaded",
+    "Search Logitech: 2 results",
+    "Price ascending: 39.90 then 49.50",
+    "Empty search state: visible",
+    "Category filter: one computer",
+    "Mobile layout: 390px",
+    "Admin category POST: ID 3 persisted",
+    "Category PUT: renamed successfully",
+    "Product POST: ID 4, price 12.35, stock 5",
+    "Required customer field blocks empty submit",
+    "Customer POST/PUT: ID 3 persisted",
+    "Duplicate email: server 409 shown inside form",
+    "Cart direct quantity editing, stock limit and reload persistence passed",
+    "Checkout: customer required; order #2 created, server total 24.70; cart cleared",
+    "Product PUT price 99; historical order unit price remains 12.35 and total 24.70",
+    "Stock changed between review and submit: server 409 shown; cart retained",
+    "Order cancellation confirmed in UI; final state Cancelled",
+    "Delete confirmation cancellation: record retained; actual browser DELETE declined by user",
+    "Missing product: visible 404 recovery state",
+    "Footer exchange rate: actual backend response displayed",
+    "Orders status filter: cancelled order visible",
+    "Mobile menu opens/closes",
+    "Responsive 390px and 768px: no page overflow; no broken images",
+    "Mobile admin editor: 350px dialog, all fields fit",
+    "Swagger UI loads all 21 API operations and schemas"
+  ],
+  "responsive": [
+    {
+      "brokenImages": 0,
+      "pageWidth": 1092,
+      "width": 1102
+    },
+    {
+      "brokenImages": 0,
+      "pageWidth": 380,
+      "width": 390
+    },
+    {
+      "brokenImages": 0,
+      "pageWidth": 758,
+      "width": 768
+    }
+  ],
+  "consoleAtFinalPage": [],
+  "browserDelete": "NOT EXECUTED: user explicitly requested retaining QA records; confirmation cancellation verified; API DELETE covered by isolated SQL tests",
+  "retainedQa": {
+    "categoryId": 3,
+    "productId": 4,
+    "customerId": 3,
+    "orderId": 2,
+    "orderStatus": "Cancelled"
+  },
+  "mobileAdminForm": {
+    "dialogWidth": 350,
+    "fieldsFit": true,
+    "pageWidth": 380,
+    "viewport": 390
+  }
+}

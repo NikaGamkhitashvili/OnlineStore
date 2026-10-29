@@ -36,6 +36,8 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePages();
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 if (app.Environment.IsDevelopment())
 {
@@ -44,6 +46,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.MapControllers();
+// Known storefront routes only: unknown /api paths must remain API 404 responses.
+foreach (var route in new[] { "/products", "/products/{id:int}", "/cart", "/checkout", "/orders", "/orders/{id:int}", "/admin" })
+    app.MapFallbackToFile(route, "index.html");
 
 if (app.Environment.IsDevelopment() && app.Configuration.GetValue<bool>("SeedData:Enabled"))
 {

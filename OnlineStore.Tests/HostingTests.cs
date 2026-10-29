@@ -107,4 +107,30 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
         Assert.Equal(order.Items.Sum(i => i.Quantity * i.UnitPrice), order.TotalAmount);
         Assert.Equal(28, (await db.Products.SingleAsync(p => p.Name == "Logitech M185")).StockQuantity);
     }
+
+    [Theory]
+    [InlineData("/")]
+    [InlineData("/products")]
+    [InlineData("/products/1")]
+    [InlineData("/cart")]
+    [InlineData("/checkout")]
+    [InlineData("/orders")]
+    [InlineData("/orders/1")]
+    [InlineData("/admin")]
+    public async Task Storefront_routes_serve_HTML_without_changing_API_contracts(string route)
+    {
+        var response = await factory.Client.GetAsync(route);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        Assert.Equal("text/html", response.Content.Headers.ContentType!.MediaType);
+        Assert.Contains("/js/app.js", await response.Content.ReadAsStringAsync());
+    }
+
+    [Fact]
+    public async Task Frontend_assets_are_local_and_unknown_API_routes_remain_404()
+    {
+        foreach (var asset in new[] { "/css/styles.css", "/js/app.js", "/js/api.js", "/js/admin.js", "/images/logo.svg", "/images/laptop.svg", "/images/mouse.svg", "/images/keyboard.svg", "/images/product.svg", "/fonts/NotoSansGeorgian.ttf" })
+            Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync(asset)).StatusCode);
+        Assert.Equal(HttpStatusCode.NotFound, (await factory.Client.GetAsync("/api/does-not-exist")).StatusCode);
+        Assert.Equal(HttpStatusCode.NotFound, (await factory.Client.GetAsync("/missing.js")).StatusCode);
+    }
 }

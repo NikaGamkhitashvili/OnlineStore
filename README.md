@@ -1,18 +1,18 @@
 # OnlineStore
 
-ონლაინ მაღაზიის მართვის სასწავლო backend, უნივერსიტეტის `FinalProject.pdf`-ის მიხედვით. შესრულებულია PDF-ის ყველა 20 API ოპერაცია და HttpClient-ის ინტეგრაცია. არსებული Stage 1 solution, ხუთი მოდელი და მონაცემთა ბაზა შენარჩუნებულია. frontend არ შექმნილა.
+ონლაინ მაღაზიის მართვის სასწავლო პროექტი, უნივერსიტეტის `FinalProject.pdf`-ის მიხედვით. შესრულებულია PDF-ის ყველა 20 API ოპერაცია და HttpClient-ის ინტეგრაცია. არსებული Stage 1 solution, ხუთი მოდელი და მონაცემთა ბაზა შენარჩუნებულია. დამატებულია HTML/CSS/Vanilla JavaScript frontend, რომელიც იმავე API პროექტიდან მუშაობს.
 
 ## მიმდინარე შედეგი
 
 - Build: 0 შეცდომა, 0 გაფრთხილება.
-- ავტომატური ტესტები: **47 წარმატებული, 0 წარუმატებელი, 0 გამოტოვებული**.
+- ავტომატური ტესტები: **56 წარმატებული, 0 წარუმატებელი, 0 გამოტოვებული**, დამატებით 9 JavaScript კალათის ტესტი.
 - ტესტები რეალურ SQL Server-ზე მუშაობს უნიკალურ `OnlineStoreTests_GUID` ბაზებში; განვითარებისთვის გამოყენებული OnlineStoreDb არ იშლება და არ ნულდება.
 - Swagger: https://localhost:7156/swagger — 20 სავალდებულო ოპერაცია + 1 ვალუტის კურსის ოპერაცია.
 - რეალური გარე მოთხოვნა: HTTP 200, USD→GEL, პროვაიდერის თარიღი 2026-10-29, მიღებული კურსი 2.5915. ეს შემოწმების მომენტის შედეგია და არა მუდმივი მნიშვნელობა.
 - ორივე მიგრაცია გამოყენებულია; სქემა მოდელს შეესაბამება.
 - GitHub-ზე ატვირთვა სტუდენტის მოთხოვნით გადადებულია. ლოკალური Git ისტორია შექმნილია.
 
-დეტალური მტკიცებულებები: `verification/LiveVerification.json`, `verification/DatabaseVerification.txt`, `verification/TestSummary.json`, `verification/BuildVerification.txt`; სრული მიმდინარე TRX: `TestResults/OnlineStore.trx` (Git-ში არ შედის).
+დეტალური მტკიცებულებები: `verification/LiveVerification.json`, `verification/DatabaseVerification.txt`, `verification/FrontendTestSummary.json`, `verification/FrontendBuild.txt`; სრული მიმდინარე TRX: `TestResults/OnlineStore.trx` (Git-ში არ შედის).
 
 მოთხოვნების სტატუსები: [FINAL_REQUIREMENTS_CHECKLIST.md](FINAL_REQUIREMENTS_CHECKLIST.md). პრეზენტაციის ტექსტი: [PROJECT_PRESENTATION.md](PROJECT_PRESENTATION.md).
 
@@ -28,7 +28,7 @@ Windows; Visual Studio Community 2026, ASP.NET and web development workload; .NE
 2. Solution Explorer → OnlineStore.API → Set as Startup Project.
 3. გაუშვი NuGet Restore. Package Manager Console-ში solution-ის საქაღალდიდან გამოიყენე ქვემოთ მოცემული EF ბრძანება, ან გამოიყენე ჩვეულებრივი PowerShell.
 4. აირჩიე **https** პროფილი. F5 ან Ctrl+F5.
-5. გახსენი https://localhost:7156/swagger. პირდაპირ `/`-ზე 404 მოსალოდნელია: ცალკე საწყისი გვერდი არ გვაქვს.
+5. გაიხსნება https://localhost:7156/ — სრული მაღაზია. Swagger ხელმისაწვდომია https://localhost:7156/swagger-ზე.
 6. თუ API უკვე გაშვებულია და პორტი დაკავებულია, ჯერ მიმდინარე პროცესში Ctrl+C გამოიყენე (Visual Studio-ში Shift+F5).
 
 PowerShell:
@@ -284,7 +284,7 @@ dotnet test OnlineStore.sln --logger "trx;LogFileName=OnlineStore.trx" --results
 
 - GitHub remote/push სტუდენტის მოთხოვნით მოგვიანებით გაკეთდება; ავტორიზაცია/საიდუმლოებები არ გამოყენებულა.
 - პრეზენტაციის სცენარი მზადაა; სტუდენტის რეალური ზეპირი წარდგენა და ცოდნა ავტომატური ტესტით ვერ დასტურდება.
-- ეს არის ლოკალური სასწავლო backend: ავტორიზაცია, გადახდები, frontend და საჯარო ჰოსტინგი PDF-ში მოთხოვნილი არ არის.
+- ეს არის ლოკალური სასწავლო მაღაზია. Frontend სტუდენტის დამატებითი მოთხოვნით შეიქმნა; ავტორიზაცია, გადახდები და საჯარო ჰოსტინგი არ დამატებულა.
 - ერთიანი SQL writer lock სწორია მცირე პროექტისთვის, მაგრამ ჩაწერებს ასერიალიზებს. დიდი დატვირთვის შემთხვევაში საჭიროა გაზომვის შემდეგ პროდუქტების დალაგებული row locks/უფრო წვრილი კონტროლი.
 - გარე სერვისის ქსელი და კურსის გამოქვეყნების თარიღი ჩვენგან დამოუკიდებელია. ცოცხალი შემოწმება შესრულდა; ხვალ იგივე კურსის დაბრუნება გარანტირებული არ არის.
 - Stage 1-ის Phone/nullability და Restrict/Cascade დაშვებები შენარჩუნებულია. ADO.NET PDF-ში სურვილისამებრ არის მითითებული და დამატებითი persistence გზა არ შექმნილა.
@@ -292,3 +292,54 @@ dotnet test OnlineStore.sln --logger "trx;LogFileName=OnlineStore.trx" --results
 ## PDF-ის შეფასება
 
 C#/OOP/ბიზნესლოგიკა 15; SQL Server/კავშირები 15; EF/CRUD 15; Web API/HTTP 15; SOLID/DI/არქიტექტურა 15; Async/Exceptions 10; HttpClient/გარე API 5; ვალიდაცია 5; Git/README/პრეზენტაცია 5 — სულ 100. რეალურ ქულას ლექტორი განსაზღვრავს; პროექტი ქულებს ავტომატურად მიღებულად არ აცხადებს.
+
+
+## FRONTEND — სრული მაღაზია
+
+**მაღაზია:** https://localhost:7156/ · **Swagger:** https://localhost:7156/swagger
+
+Frontend იყენებს HTML5-ს, CSS Grid/Flexbox-ს და Vanilla JavaScript ES modules-ს. React/Angular/Vue, npm dependencies ან ახალი ბაზა არ დამატებულა. ყველაფერი მოთავსებულია `OnlineStore.API/wwwroot`-ში და იმავე origin-იდან იღებს `/api/...` მონაცემებს; CORS კონფიგურაცია საჭირო არ არის.
+
+| მისამართი | გვერდი |
+|---|---|
+| / | მთავარი: ბანერი, კატეგორიები, რეალური პროდუქტის ბარათები |
+| /products | კატალოგი: სახელით ძებნა, კატეგორია, მარაგი, ფასით დალაგება |
+| /products/{id} | აღწერა, ფასი, მარაგი, რაოდენობა და კალათაში დამატება |
+| /cart | კალათა, რაოდენობები, ამოშლა და სავარაუდო ჯამი |
+| /checkout | არსებული მომხმარებელი, შეკვეთის გადამოწმება და გაგზავნა |
+| /orders | შეკვეთები, მომხმარებლები, სტატუსით გაფილტვრა |
+| /orders/{id} | პოზიციები ისტორიული ფასებით; სტატუსის ნებადართული ცვლილებები |
+| /admin | დემო Product/Category/Customer CRUD და შეკვეთების მართვაზე გადასვლა |
+
+ეს არის შვიდი ძირითადი გვერდი და დამატებითი შეკვეთის დეტალების გზა. საერთო `index.html` ემსახურება ცნობილ მისამართებს; `app.js` შესაბამის გვერდის მოდულს ტვირთავს. უცნობი `/api/...` და დაკარგული `.js` მისამართები 404-ს ინარჩუნებს. Browser Back/Forward და პირდაპირ URL-ზე შესვლა მუშაობს ჩვეულებრივი გვერდის ნავიგაციით.
+
+ბარათების სახელები, ფასები, კატეგორიები და მარაგი SQL Server-იდან API-ის გზით მოდის. პროდუქტის ფოტოს ველი backend-ში არ არსებობს: გამოყენებულია ჩვენი ლოკალური SVG საილუსტრაციო გამოსახულებები. ახალი სურათის URL/ველი ბაზას არ დამატებია. შრიფტი Noto Sans Georgian ლოკალურად ინახება თავისი SIL OFL ლიცენზიით.
+
+კალათა `localStorage`-ში ინახავს მხოლოდ `{ productId, quantity }` ჩანაწერებს. გვერდზე შესვლისას ფასები/მარაგი API-დან თავიდან იკითხება. არასწორი შენახული ჩანაწერები მოწმდება; ახალი პროდუქტი მაქსიმუმ ხელმისაწვდომ რაოდენობამდე ემატება. ამოწურული/წაშლილი პროდუქტი checkout-ს ბლოკავს. localStorage-ის შეზღუდვისას ჩანს გაფრთხილება, რომ კალათა გვერდის გადატვირთვას ვერ გაუძლებს.
+
+Checkout აგზავნის მხოლოდ `customerId`-ს და `items: [{productId, quantity}]`-ს. სერვერი ითვლის თანხას და ამცირებს მარაგს. მხოლოდ წარმატებული პასუხის შემდეგ იწმინდება კალათა და ჩანს Order Id/სერვერული TotalAmount. გადახდა არ ხდება და წარმატებული გადახდის იმიტაცია არ კეთდება. შეცდომისას კალათა რჩება; მარაგის ცვლილების შემთხვევაში მომხმარებელს გადამოწმება ეთხოვება. საეჭვო ქსელური ჩავარდნისას ავტომატური ხელახალი POST არ იგზავნება — თავიდან უნდა შემოწმდეს შეკვეთები.
+
+Admin მკაფიოდ მონიშნულია როგორც **ლოკალური დემო ავტორიზაციის გარეშე**. ის უსაფრთხო/შეზღუდულ ადმინისტრაციად არ არის წარმოდგენილი. საჯარო ჰოსტინგამდე საჭიროა ნამდვილი authentication/authorization. წაშლამდე და სტატუსის საბოლოო ცვლილებამდე არის დადასტურების dialog. ბაზის უარის შემთხვევაში შეცდომა ჩანს და წარმატება არ ცხადდება.
+
+Footer-ის USD/GEL ღილაკი იყენებს არსებულ exchange-rates endpoint-ს და აჩვენებს კურსსა და თარიღს. ძირითადი ფასები GEL-ია და შენახული ფასები არ იცვლება. კურსის ქსელური პრობლემა მაღაზიის სხვა გვერდებს არ აფერხებს.
+
+შინაარსი DOM-ის `textContent`/ტექსტური კვანძებით თავსდება; API-ის ტექსტი HTML-ად არ სრულდება. არის keyboard focus, native form validation, loading/empty/error/success მდგომარეობები, მობილური მენიუ და პატარა ეკრანზე ცხრილის შიდა ჰორიზონტალური scroll.
+
+### Frontend-ის შემოწმება
+
+```powershell
+dotnet restore OnlineStore.sln
+dotnet build OnlineStore.sln --no-restore
+dotnet test OnlineStore.sln --logger "trx;LogFileName=Frontend.trx" --results-directory TestResults
+node --test scripts/cart-tests.mjs
+```
+
+Node მხოლოდ JavaScript-ის ტესტებისთვის გამოიყენება; მაღაზიის გასაშვებად Node/npm საჭირო არ არის. თუ Node PATH-ში არაა, მიუთითე შენს გარემოში არსებული Node executable-ის სრული გზა.
+
+ბრაუზერში შემოწმდა ძებნა, ფილტრი, ფასით დალაგება, ცარიელი შედეგი, პროდუქტის დეტალები, კალათის რაოდენობები/შენახვა/ამოშლა, checkout, რეალური SQL შეკვეთა, stock race-ის 409, ისტორიული ფასი, სტატუსის შეცვლა, admin create/edit, ვალიდაცია, უსაფრთხო ტექსტი და responsive განლაგება.
+
+**წაშლის შემოწმების საზღვარი:** სტუდენტმა მოითხოვა QA ჩანაწერების დატოვება, ამიტომ ბრაუზერში რეალური DELETE არ შესრულდა. შემოწმდა წაშლის dialog-ის გაუქმება. DELETE-ის წარმატებული ციკლები და ურთიერთობების შეზღუდვები არსებულ იზოლირებულ SQL integration ტესტებში სრულდება. QA category #3, product #4, customer #3 და Cancelled order #2 შეგნებულად დარჩა; საწყის დემო ჩანაწერებს არ შევხებივართ.
+
+დეტალები: [FRONTEND_IMPLEMENTATION.md](FRONTEND_IMPLEMENTATION.md). ვიზუალური მასალა: `verification/frontend-desktop.png`, `verification/frontend-mobile.png`, `verification/frontend-order-proof.png`; შემოწმების ანგარიში `verification/FrontendBrowserVerification.json`. SQL მტკიცებულება: `verification/FrontendSqlBeforeCleanup.txt` და `verification/FrontendSqlFinal.txt` (პირველი სახელი ისტორიულია — cleanup არ შესრულებულა).
+
+![მაღაზიის მთავარი გვერდი](verification/frontend-desktop.png)

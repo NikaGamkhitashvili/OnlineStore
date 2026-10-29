@@ -1,0 +1,16 @@
+Id|Price|StockQuantity|CategoryId
+--|-----|-------------|----------
+1|1899.99|8|1
+2|39.90|28|2
+3|49.50|19|2
+4|99.00|5|3
+Id|CustomerId|Status|TotalAmount
+--|----------|------|-----------
+1|2|Pending|129.30
+2|3|Cancelled|24.70
+OrderId|ProductId|Quantity|UnitPrice
+-------|---------|--------|---------
+2|4|2|12.35
+Categories|Customers|Products|Orders
+----------|---------|--------|------
+3|3|4|2

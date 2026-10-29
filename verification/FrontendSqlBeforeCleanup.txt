@@ -1,0 +1,12 @@
+Id|Price|StockQuantity|CategoryId
+--|-----|-------------|----------
+4|12.35|3|3
+Id|CustomerId|Status|TotalAmount
+--|----------|------|-----------
+2|3|Pending|24.70
+OrderId|ProductId|Quantity|UnitPrice
+-------|---------|--------|---------
+2|4|2|12.35
+Id|Email
+--|-----
+3|uiqa.20261030@example.com

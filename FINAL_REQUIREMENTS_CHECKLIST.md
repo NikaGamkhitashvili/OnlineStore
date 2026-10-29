@@ -4,7 +4,7 @@
 
 **სტატუსები:** COMPLETE — რეალიზებულია და შესაბამისი შემოწმება წარმატებულია; PARTIAL — ნაწილი მზადაა, მაგრამ ჩაბარების/ადამიანის მოქმედება დარჩენილია; NOT IMPLEMENTED — არ არის რეალიზებული; BLOCKED — გარე დაბრკოლება ხელს უშლის. GitHub სტუდენტის მოთხოვნით მოგვიანებით კეთდება; ტექნიკური ფუნქციონალის დაბლოკილი პუნქტი არ დარჩა.
 
-**შედეგი:** restore წარმატებულია; build 0 შეცდომა / 0 გაფრთხილება; ავტომატური ტესტები 47/47 Passed, 0 Skipped. ყველა 20 სავალდებულო API ოპერაცია რეალურ SQL Server-ის იზოლირებულ ბაზებში შემოწმდა. გაშვებული Development API ცალკე შემოწმდა HTTPS-ით, დემო მონაცემებითა და რეალური გარე კავშირით.
+**შედეგი:** restore წარმატებულია; build 0 შეცდომა / 0 გაფრთხილება; ავტომატური ტესტები 56/56 Passed, 0 Skipped. ყველა 20 სავალდებულო API ოპერაცია რეალურ SQL Server-ის იზოლირებულ ბაზებში შემოწმდა. გაშვებული Development API ცალკე შემოწმდა HTTPS-ით, დემო მონაცემებითა და რეალური გარე კავშირით.
 
 ## API — PDF-ის 20 სავალდებულო მოქმედება
 
@@ -66,7 +66,7 @@
 | HttpClient + გარე API | COMPLETE | Core/Interfaces/IExchangeRateService.cs; Infrastructure/Services/ExchangeRateService.cs; Program.cs | ExternalApiTests; scripts/VerifyRunningApi.ps1 | PASS: იზოლირებული failure ტესტები + რეალური HTTP 200 USD/GEL |
 | HTTPS, Swagger, request/response schemas (დამატებითი მოთხოვნა) | COMPLETE | API/Program.cs; DTOs; Properties/launchSettings.json | HostingTests.Swagger_has_twenty_mandatory_operations_plus_external_rate_and_schemas; რეალური ბრაუზერი | PASS: 21 ოპერაცია, OpenAPI JSON და schemas |
 | Development-only, განმეორებადი sample data; არსებული მონაცემები არ იფარება | COMPLETE | Infrastructure/Data/DevelopmentSeeder.cs; API/appsettings.Development.json | Empty_development_database_seed...; Development_seed_is_repeatable...; live counts | PASS: 2 category, 3 product, 2 customer, 1 order, 2 items; restart არ აორმაგებს |
-| მნიშვნელოვანი ავტომატური და endpoint integration ტესტები | COMPLETE | OnlineStore.Tests/ | dotnet test OnlineStore.sln | PASS: 47 / 47, 0 skipped; მხოლოდ იზოლირებული SQL ბაზები |
+| მნიშვნელოვანი ავტომატური და endpoint integration ტესტები | COMPLETE | OnlineStore.Tests/ | dotnet test OnlineStore.sln | PASS: 56 / 56, 0 skipped; მხოლოდ იზოლირებული SQL ბაზები |
 | README: აღწერა/ტექნოლოგიები/გაშვება/ბაზა/API/ტესტირება/დაშვებები | COMPLETE | README.md | დოკუმენტის გადამოწმება + მითითებული ბრძანებების რეალური შესრულება | PASS |
 | Swagger/Postman/HTTP მოთხოვნების მაგალითები | COMPLETE | OnlineStore.API/OnlineStore.API.http; README.md | 20 ოპერაციის შესაბამისობა ავტომატურ endpoint ტესტებთან | PASS: 20 მაგალითი + external/validation |
 | Git და მოწესრიგებული ლოკალური ისტორია | COMPLETE | .git (ლოკალური repository) | git log; git status | PASS: implementation და tests/docs commits; გლობალური კონფიგურაცია უცვლელია |
@@ -86,9 +86,27 @@
 
 - `verification/RestoreVerification.txt` — restore.
 - `verification/BuildVerification.txt` — build 0 warning/error.
-- `verification/TestVerification.txt`, `verification/TestSummary.json` — 47/47 შედეგი; მიმდინარე სრული TRX `TestResults/OnlineStore.trx`.
+- `verification/TestVerification.txt`, `verification/TestSummary.json` — 56/56 შედეგი; მიმდინარე სრული TRX `TestResults/OnlineStore.trx`.
 - `verification/DatabaseVerification.txt` — ცოცხალი სქემის 5 ცხრილი/24 სვეტი/გასაღებები/ინდექსები/შეზღუდვები.
 - `verification/MigrationVerification.txt`, `verification/ModelVerification.txt` — გამოყენებული მიგრაციები და pending ცვლილებების არქონა.
 - `verification/LiveVerification.json` — Development HTTPS, Swagger, დემო მონაცემები და რეალური external HTTP 200.
 
 შენიშვნა: ცოცხალ OnlineStoreDb-ზე გამოყენებულია მხოლოდ უსაფრთხო დამატებითი მიგრაცია, სრულიად ცარიელი ბაზის seed და read-only/უარყოფილი validation მოთხოვნები. სრული CRUD/წაშლა/rollback/concurrency სცენარები იზოლირებულ ტესტის ბაზებში შესრულდა.
+
+
+## დამატებითი FRONTEND მოთხოვნები (PDF-ის სავალდებულო scope-ის მიღმა)
+
+| მოთხოვნა | სტატუსი | ფაილი | შემოწმება | შედეგი |
+|---|---|---|---|---|
+| HTML/CSS/Vanilla JavaScript, იგივე origin, wwwroot | COMPLETE | API/Program.cs; wwwroot/index.html; css; js | build + route/assets tests + browser | PASS; ახალი framework/database არაა |
+| შვიდი ძირითადი გვერდი და Order details | COMPLETE | wwwroot/js/app.js და გვერდების მოდულები | 8 HTML route cases + real browser | PASS |
+| რეალური პროდუქტები, ძებნა, კატეგორია, ფასი, მარაგი, სურათები | COMPLETE | products.js; ui.js; images/ | browser search/filter/sort/detail + no broken images | PASS |
+| კალათა: quantity, remove, persistence, estimated total | COMPLETE | cart-store.js; cart.js | 9 Node tests + browser | PASS |
+| Checkout: existing customer, actual DTO, server total, success/errors | COMPLETE | checkout.js | browser Order #2 + SQL; 409 stock race | PASS |
+| Order details/status/history და Admin create/edit/delete რეალიზაცია | COMPLETE | orders.js; admin.js | browser create/edit/status/history; isolated API CRUD tests | PASS; DELETE browser execution ცალკე შეზღუდულია ქვემოთ |
+| Desktop/tablet/mobile, menu, local font/images, safe text | COMPLETE | styles.css; ui.js; assets | browser 390/768/default width, DOM measurements | PASS |
+| optional exchange-rate display | COMPLETE | app.js; index.html | რეალური footer request | PASS |
+| რეალური წაშლა უშუალოდ ბრაუზერიდან | PARTIAL | admin.js; orders.js | dialog cancellation tested; user declined QA deletion | NOT EXECUTED BY USER REQUEST; isolated SQL DELETE tests PASS |
+| Frontend დოკუმენტაცია და პრეზენტაციის სცენარი | COMPLETE | README.md; FRONTEND_IMPLEMENTATION.md; PROJECT_PRESENTATION.md | source/document review | მზადაა |
+
+Frontend-ის უახლესი შედეგებია `verification/FrontendBuild.txt`, `FrontendTests.txt`, `FrontendBrowserVerification.json`, `FrontendSqlFinal.txt` და screenshots. წინა `TestSummary.json`/OnlineStore.trx შეიცავს backend ეტაპის 47 ტესტის ისტორიულ შედეგს; frontend-ის მიმდინარე .NET შედეგია 56, დამატებით 9 Node ტესტი. GitHub და პირადი დაცვა ისევ ცალკე ჩასაბარებელი მოქმედებებია.
