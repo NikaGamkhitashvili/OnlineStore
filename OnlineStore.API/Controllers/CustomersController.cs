@@ -1,0 +1,41 @@
+using Microsoft.AspNetCore.Mvc;
+using OnlineStore.API.DTOs;
+using OnlineStore.Core.Exceptions;
+using OnlineStore.Core.Interfaces;
+
+namespace OnlineStore.API.Controllers;
+
+[Route("api/customers")]
+public class CustomersController(ICustomerService service) : StoreControllerBase
+{
+    [HttpGet]
+    public async Task<ActionResult<IReadOnlyList<CustomerResponse>>> GetAll(CancellationToken ct) =>
+        Ok((await service.GetAllAsync(ct)).Select(CustomerResponse.From).ToList());
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<CustomerResponse>> GetById(int id, CancellationToken ct)
+    {
+        var entity = await service.GetByIdAsync(id, ct) ?? throw new NotFoundException("Customer", id);
+        return Ok(CustomerResponse.From(entity));
+    }
+
+    [HttpPost]
+    [ProducesResponseType<CustomerResponse>(201)]
+    public async Task<ActionResult<CustomerResponse>> Create(CustomerRequest request, CancellationToken ct)
+    {
+        var entity = await service.CreateAsync(request.ToEntity(), ct);
+        return CreatedAtAction(nameof(GetById), new { id = entity.Id }, CustomerResponse.From(entity));
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<CustomerResponse>> Update(int id, CustomerRequest request, CancellationToken ct) =>
+        Ok(CustomerResponse.From(await service.UpdateAsync(id, request.ToEntity(), ct)));
+
+    [HttpDelete("{id:int}")]
+    [ProducesResponseType(204)]
+    public async Task<IActionResult> Delete(int id, CancellationToken ct)
+    {
+        await service.DeleteAsync(id, ct);
+        return NoContent();
+    }
+}
