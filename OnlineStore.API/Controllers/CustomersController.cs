@@ -9,10 +9,12 @@ namespace OnlineStore.API.Controllers;
 public class CustomersController(ICustomerService service) : StoreControllerBase
 {
     [HttpGet]
+    [ProducesResponseType<IReadOnlyList<CustomerResponse>>(200)]
     public async Task<ActionResult<IReadOnlyList<CustomerResponse>>> GetAll(CancellationToken ct) =>
         Ok((await service.GetAllAsync(ct)).Select(CustomerResponse.From).ToList());
 
     [HttpGet("{id:int}")]
+    [ProducesResponseType<CustomerResponse>(200)]
     public async Task<ActionResult<CustomerResponse>> GetById(int id, CancellationToken ct)
     {
         var entity = await service.GetByIdAsync(id, ct) ?? throw new NotFoundException("Customer", id);
@@ -28,6 +30,7 @@ public class CustomersController(ICustomerService service) : StoreControllerBase
     }
 
     [HttpPut("{id:int}")]
+    [ProducesResponseType<CustomerResponse>(200)]
     public async Task<ActionResult<CustomerResponse>> Update(int id, CustomerRequest request, CancellationToken ct) =>
         Ok(CustomerResponse.From(await service.UpdateAsync(id, request.ToEntity(), ct)));
 

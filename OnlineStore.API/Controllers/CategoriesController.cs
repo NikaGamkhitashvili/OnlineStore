@@ -9,10 +9,12 @@ namespace OnlineStore.API.Controllers;
 public class CategoriesController(ICategoryService service) : StoreControllerBase
 {
     [HttpGet]
+    [ProducesResponseType<IReadOnlyList<CategoryResponse>>(200)]
     public async Task<ActionResult<IReadOnlyList<CategoryResponse>>> GetAll(CancellationToken ct) =>
         Ok((await service.GetAllAsync(ct)).Select(CategoryResponse.From).ToList());
 
     [HttpGet("{id:int}")]
+    [ProducesResponseType<CategoryResponse>(200)]
     public async Task<ActionResult<CategoryResponse>> GetById(int id, CancellationToken ct)
     {
         var entity = await service.GetByIdAsync(id, ct) ?? throw new NotFoundException("Category", id);
@@ -28,6 +30,7 @@ public class CategoriesController(ICategoryService service) : StoreControllerBas
     }
 
     [HttpPut("{id:int}")]
+    [ProducesResponseType<CategoryResponse>(200)]
     public async Task<ActionResult<CategoryResponse>> Update(int id, CategoryRequest request, CancellationToken ct) =>
         Ok(CategoryResponse.From(await service.UpdateAsync(id, request.ToEntity(), ct)));
 

@@ -1,0 +1,99 @@
+@baseUrl = https://localhost:7156
+# Replace these 0 values only with IDs of records YOU create for the demo.
+@newCategoryId = 0
+@newProductId = 0
+@newCustomerId = 0
+@newOrderId = 0
+
+### 1. List products (optional LINQ filters)
+GET {{baseUrl}}/api/products?search=Logitech
+
+### 2. Product detail
+GET {{baseUrl}}/api/products/{{newProductId}}
+
+### 3. Create product after creating a category
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{"name":"Presentation Mouse","description":"USB","price":25.50,"stockQuantity":10,"categoryId":{{newCategoryId}}}
+
+### 4. Update product
+PUT {{baseUrl}}/api/products/{{newProductId}}
+Content-Type: application/json
+
+{"name":"Presentation Mouse Updated","description":"USB","price":29.50,"stockQuantity":10,"categoryId":{{newCategoryId}}}
+
+### 5. Delete your demo product after deleting its demo orders
+DELETE {{baseUrl}}/api/products/{{newProductId}}
+
+### 6. List categories
+GET {{baseUrl}}/api/categories
+
+### 7. Category detail
+GET {{baseUrl}}/api/categories/{{newCategoryId}}
+
+### 8. Create category; copy returned id into newCategoryId
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+
+{"name":"Presentation Category","description":"University demonstration"}
+
+### 9. Update category
+PUT {{baseUrl}}/api/categories/{{newCategoryId}}
+Content-Type: application/json
+
+{"name":"Presentation Category Updated","description":"University demonstration"}
+
+### 10. Delete your empty demo category
+DELETE {{baseUrl}}/api/categories/{{newCategoryId}}
+
+### 11. List customers
+GET {{baseUrl}}/api/customers
+
+### 12. Customer detail
+GET {{baseUrl}}/api/customers/{{newCustomerId}}
+
+### 13. Create customer; use a fresh email each demo
+POST {{baseUrl}}/api/customers
+Content-Type: application/json
+
+{"firstName":"Ana","lastName":"Gelashvili","email":"presentation.ana@example.com","phone":"+995555020202"}
+
+### 14. Update customer
+PUT {{baseUrl}}/api/customers/{{newCustomerId}}
+Content-Type: application/json
+
+{"firstName":"Ana","lastName":"Updated","email":"presentation.ana@example.com"}
+
+### 15. Delete your demo customer after deleting its orders
+DELETE {{baseUrl}}/api/customers/{{newCustomerId}}
+
+### 16. List orders
+GET {{baseUrl}}/api/orders
+
+### 17. Order detail with order items
+GET {{baseUrl}}/api/orders/{{newOrderId}}
+
+### 18. Create order; copy returned id into newOrderId
+POST {{baseUrl}}/api/orders
+Content-Type: application/json
+
+{"customerId":{{newCustomerId}},"items":[{"productId":{{newProductId}},"quantity":2}]}
+
+### 19. Cancel order (stock restored once)
+PUT {{baseUrl}}/api/orders/{{newOrderId}}/status
+Content-Type: application/json
+
+{"status":"Cancelled"}
+
+### 20. Delete your cancelled demo order
+DELETE {{baseUrl}}/api/orders/{{newOrderId}}
+
+### External integration (additional operation)
+GET {{baseUrl}}/api/exchange-rates?baseCurrency=USD&targetCurrency=GEL
+
+### Validation example: 400, no record created
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{"name":"Invalid","price":0,"stockQuantity":-1,"categoryId":{{newCategoryId}}}

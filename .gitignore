@@ -7,3 +7,4 @@ tmp/
 *.pfx
 *.log
 TestResults/
+.codex/

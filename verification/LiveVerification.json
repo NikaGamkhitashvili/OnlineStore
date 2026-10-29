@@ -1,0 +1,23 @@
+{
+  "verifiedAtUtc": "2026-10-29T20:54:31.5703726+00:00",
+  "baseUrl": "https://localhost:7156",
+  "openApiOperations": 21,
+  "swaggerAssets": "PASS",
+  "listAndDetailEndpoints": "PASS",
+  "sampleDataCounts": {
+    "orders": 1,
+    "customers": 2,
+    "categories": 2,
+    "products": 3
+  },
+  "invalidInputStatus": 400,
+  "notFoundStatus": 404,
+  "realExternalApiStatus": 200,
+  "exchangeRate": {
+    "baseCurrency": "USD",
+    "targetCurrency": "GEL",
+    "date": "2026-10-29",
+    "rate": 2.5915
+  },
+  "note": "Read-only checks plus rejected invalid input. All 20 CRUD operations are tested separately on isolated SQL Server databases."
+}

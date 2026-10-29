@@ -9,10 +9,12 @@ namespace OnlineStore.API.Controllers;
 public class OrdersController(IOrderService service) : StoreControllerBase
 {
     [HttpGet]
+    [ProducesResponseType<IReadOnlyList<OrderResponse>>(200)]
     public async Task<ActionResult<IReadOnlyList<OrderResponse>>> GetAll(CancellationToken ct) =>
         Ok((await service.GetAllAsync(ct)).Select(OrderResponse.From).ToList());
 
     [HttpGet("{id:int}")]
+    [ProducesResponseType<OrderResponse>(200)]
     public async Task<ActionResult<OrderResponse>> GetById(int id, CancellationToken ct)
     {
         var order = await service.GetByIdAsync(id, ct) ?? throw new NotFoundException("Order", id);
@@ -29,6 +31,7 @@ public class OrdersController(IOrderService service) : StoreControllerBase
     }
 
     [HttpPut("{id:int}/status")]
+    [ProducesResponseType<OrderResponse>(200)]
     public async Task<ActionResult<OrderResponse>> UpdateStatus(int id, UpdateOrderStatusRequest request, CancellationToken ct) =>
         Ok(OrderResponse.From(await service.UpdateStatusAsync(id, request.Status, ct)));
 
