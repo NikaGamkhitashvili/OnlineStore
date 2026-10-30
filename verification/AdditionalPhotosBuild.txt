@@ -1,0 +1,10 @@
+  OnlineStore.Core -> C:\Projects\OnlineStore\OnlineStore.Core\bin\Debug\net10.0\OnlineStore.Core.dll
+  OnlineStore.Infrastructure -> C:\Projects\OnlineStore\OnlineStore.Infrastructure\bin\Debug\net10.0\OnlineStore.Infrastructure.dll
+  OnlineStore.API -> C:\Projects\OnlineStore\OnlineStore.API\bin\Debug\net10.0\OnlineStore.API.dll
+  OnlineStore.Tests -> C:\Projects\OnlineStore\OnlineStore.Tests\bin\Debug\net10.0\OnlineStore.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:04.94

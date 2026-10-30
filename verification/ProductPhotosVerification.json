@@ -1,7 +1,7 @@
 {
   "total": 30,
-  "photographs": 7,
-  "placeholders": 23,
+  "photographs": 10,
+  "placeholders": 20,
   "productDataUnchanged": true,
   "allImageFilesLocal": true,
   "images": [
@@ -38,8 +38,8 @@
     {
       "id": 6,
       "model": "HP Pavilion 15",
-      "src": "/images/laptop.svg",
-      "photograph": false
+      "src": "/images/products/hp-pavilion-15.webp",
+      "photograph": true
     },
     {
       "id": 7,
@@ -146,8 +146,8 @@
     {
       "id": 24,
       "model": "Sony WH-1000XM4",
-      "src": "/images/headphones.svg",
-      "photograph": false
+      "src": "/images/products/sony-wh-1000xm4.webp",
+      "photograph": true
     },
     {
       "id": 25,
@@ -164,8 +164,8 @@
     {
       "id": 27,
       "model": "Samsung T7 Portable SSD 1TB",
-      "src": "/images/ssd.svg",
-      "photograph": false
+      "src": "/images/products/samsung-t7.webp",
+      "photograph": true
     },
     {
       "id": 28,
@@ -187,6 +187,5 @@
     }
   ],
   "all30ImageUrlsHttp200": true,
-  "allFiveDatabaseTablesUnchanged": true,
-  "databaseBaseline": "CatalogAfterRestart.json"
+  "allFiveDatabaseTablesUnchanged": true
 }

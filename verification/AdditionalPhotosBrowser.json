@@ -1,0 +1,182 @@
+[
+  {
+    "href": "https://localhost:7156/products/1",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/laptop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/2",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/logitech-m185.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/3",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/logitech-k120.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/4",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/mouse.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/5",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/asus-vivobook-15.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/6",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/hp-pavilion-15.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/7",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/laptop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/8",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/laptop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/9",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/laptop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/10",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/laptop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/11",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/desktop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/12",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/desktop.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/13",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/lenovo-thinkcentre-neo-50t.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/14",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/monitor.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/15",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/monitor.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/16",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/keyboard.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/17",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/keyboard.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/18",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/keyboard.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/19",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/keyboard.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/20",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/logitech-mx-master-3s.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/21",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/logitech-g305.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/22",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/mouse.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/23",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/headphones.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/24",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/sony-wh-1000xm4.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/25",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/headphones.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/26",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/headphones.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/27",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/samsung-t7.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/28",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/products/logitech-c920.webp"
+  },
+  {
+    "href": "https://localhost:7156/products/29",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/hub.svg"
+  },
+  {
+    "href": "https://localhost:7156/products/30",
+    "fit": "contain",
+    "loaded": true,
+    "src": "/images/mousepad.svg"
+  }
+]
