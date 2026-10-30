@@ -25,6 +25,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<DevelopmentSeeder>();
+builder.Services.AddScoped<CatalogSeeder>();
 builder.Services.AddHttpClient<IExchangeRateService, ExchangeRateService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ExchangeRates:BaseUrl"] ?? "https://api.frankfurter.dev/");
@@ -54,6 +55,8 @@ if (app.Environment.IsDevelopment() && app.Configuration.GetValue<bool>("SeedDat
 {
     await using var scope = app.Services.CreateAsyncScope();
     await scope.ServiceProvider.GetRequiredService<DevelopmentSeeder>().SeedAsync();
+    if (app.Configuration.GetValue<bool>("SeedData:CatalogEnabled"))
+        await scope.ServiceProvider.GetRequiredService<CatalogSeeder>().SeedAsync();
 }
 
 app.Run();
