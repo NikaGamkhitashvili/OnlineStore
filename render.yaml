@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: onlinestore-nika
+    runtime: docker
+    plan: free
+    region: frankfurt
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: 'off'
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: Hosting__RenderProxy
+        value: 'true'
+      - key: SeedData__Enabled
+        value: 'false'
+      - key: SeedData__CatalogEnabled
+        value: 'false'
+      - key: ConnectionStrings__OnlineStoreDb
+        sync: false
+      - key: Admin__Username
+        value: admin
+      - key: Admin__Password
+        sync: false

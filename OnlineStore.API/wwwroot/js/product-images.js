@@ -1,5 +1,5 @@
-import { productPhotos } from './product-photos.js?v=20261031-2';
-import { sourceImages } from './catalog-data.js?v=20261031-2';
+import { productPhotos } from './product-photos.js?v=render-1';
+import { sourceImages } from './catalog-data.js?v=render-1';
 
 // Exact-name matches only: never substitute a different brand/model's photograph.
 export const photoFor = product => productPhotos[product.name.trim().toLowerCase()];

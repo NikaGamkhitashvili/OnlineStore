@@ -74,12 +74,13 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
             Assert.True(paths.GetProperty($"/api/{resource}/{{id}}").TryGetProperty("delete", out _));
             Assert.True(paths.GetProperty(resource == "orders" ? "/api/orders/{id}/status" : $"/api/{resource}/{{id}}").TryGetProperty("put", out _));
         }
-        Assert.Equal(22, paths.EnumerateObject().Sum(p => p.Value.EnumerateObject().Count()));
+        Assert.Equal(26, paths.EnumerateObject().Sum(p => p.Value.EnumerateObject().Count()));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("CreateOrderRequest", out _));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("OrderResponse", out _));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("ExchangeRate", out _));
         foreach (var path in paths.EnumerateObject())
         {
+            if (path.Name.StartsWith("/api/auth/") || path.Name == "/health") continue;
             foreach (var operation in path.Value.EnumerateObject())
             {
                 var status = operation.Name == "post" && path.Name != "/api/catalog-import/dummyjson" ? "201" : operation.Name == "delete" ? "204" : "200";

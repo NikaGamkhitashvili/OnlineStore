@@ -1,5 +1,5 @@
-import { api } from './api.js?v=20261031-2';
-import { el, icon, money, date, badge, heading, field, toast, confirmAction, imageFor } from './ui.js?v=20261031-2';
+import { api } from './api.js?v=render-1';
+import { el, icon, money, date, badge, heading, field, toast, confirmAction, imageFor } from './ui.js?v=render-1';
 
 const tabs = { products: 'პროდუქტები', categories: 'კატეგორიები', customers: 'მომხმარებლები', orders: 'შეკვეთები' };
 const singular = { products: 'პროდუქტის', categories: 'კატეგორიის', customers: 'მომხმარებლის' };
@@ -11,6 +11,7 @@ export async function renderAdmin(main) {
   let active = new URLSearchParams(location.search).get('tab') || 'products';
   if (!tabs[active]) active = 'products';
   const side = el('aside', { class: 'admin-sidebar' }, el('h2', {}, 'მართვის სივრცე'));
+  side.append(el('button', { class: 'button secondary', onClick: async () => { await api.post('auth/logout'); location.reload(); } }, 'ანგარიშიდან გასვლა'));
   const content = el('section', { class: 'admin-content' });
   const search = el('input', { type: 'search', placeholder: 'ჩანაწერის ძებნა…', 'aria-label': 'ადმინისტრაციული ჩანაწერების ძებნა' });
   const tableArea = el('div', { class: 'table-scroll admin-table' });
@@ -66,7 +67,7 @@ export async function renderAdmin(main) {
   search.addEventListener('input', drawTable);
   content.append(el('div', { class: 'admin-section-head' }, el('div', {}, title, count), addButton), el('div', { class: 'admin-search' }, search), tableArea);
   main.replaceChildren(heading('მაღაზიის მართვა', 'კატალოგი, მომხმარებლები და შეკვეთები.'),
-    el('div', { class: 'demo-banner', role: 'note' }, el('strong', {}, 'დემო ადმინისტრირება'), el('span', {}, 'ავტორიზაციის გარეშე · მხოლოდ ლოკალური სასწავლო გამოყენებისთვის. საჯაროდ გამოქვეყნებამდე საჭიროა წვდომის დაცვა.')),
+    el('div', { class: 'demo-banner', role: 'note' }, el('strong', {}, 'დაცული ადმინისტრირება'), el('span', {}, 'ადმინისტრატორის სესია · სასწავლო დემო · რეალური გადახდის გარეშე.')),
     stats, el('div', { class: 'admin-layout' }, side, content));
   selectTab(active);
 

@@ -1,5 +1,5 @@
-import { api } from './api.js?v=20261031-2';
-import { el, icon, money, date, badge, statusNames, heading, breadcrumbs, empty, toast, confirmAction } from './ui.js?v=20261031-2';
+import { api } from './api.js?v=render-1';
+import { el, icon, money, date, badge, statusNames, heading, breadcrumbs, empty, toast, confirmAction } from './ui.js?v=render-1';
 
 export async function orderActions(order, afterChange) {
   const container = el('div', { class: 'order-actions' });

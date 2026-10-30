@@ -36,7 +36,7 @@ export const money = value => `${new Intl.NumberFormat('ka-GE', { minimumFractio
 export const date = value => new Intl.DateTimeFormat('ka-GE', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
 export const statusNames = { Pending: 'მოლოდინში', Completed: 'დასრულებული', Cancelled: 'გაუქმებული' };
 export const badge = value => el('span', { class: `badge ${['Pending','Completed','Cancelled'].includes(value) ? value.toLowerCase() : ''}` }, statusNames[value] || value);
-export { imageFor } from './product-images.js?v=20261031-2';
+export { imageFor } from './product-images.js?v=render-1';
 export function toast(message, error = false) {
   const notice = el('div', { class: `toast ${error ? 'toast-error' : ''}`, role: error ? 'alert' : 'status' },
     icon(error ? 'close' : 'check'), el('span', {}, message));

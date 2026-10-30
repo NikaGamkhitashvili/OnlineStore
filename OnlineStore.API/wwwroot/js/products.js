@@ -1,9 +1,9 @@
-import { api } from './api.js?v=20261031-2';
-import { cart } from './cart-store.js?v=20261031-2';
-import { photoFor, imageAlt } from './product-images.js?v=20261031-2';
-import { catalogPage, sourceFor, sourceImages, ratingFor, brandFor } from './catalog-data.js?v=20261031-2';
-import { wishlist } from './wishlist-store.js?v=20261031-2';
-import { el, icon, money, imageFor, toast, empty, heading, breadcrumbs, quantityControl } from './ui.js?v=20261031-2';
+import { api } from './api.js?v=render-1';
+import { cart } from './cart-store.js?v=render-1';
+import { photoFor, imageAlt } from './product-images.js?v=render-1';
+import { catalogPage, sourceFor, sourceImages, ratingFor, brandFor } from './catalog-data.js?v=render-1';
+import { wishlist } from './wishlist-store.js?v=render-1';
+import { el, icon, money, imageFor, toast, empty, heading, breadcrumbs, quantityControl } from './ui.js?v=render-1';
 
 function addToCart(product, quantity = 1) {
   try {
