@@ -90,5 +90,44 @@ export const productPhotos = {
     "checkedOn": "2026-10-30",
     "sha256": "9a2190f215b58b931e1bf3aae18e32c180aada7dac36a01790d10a37f21fad60",
     "originalSha256": "711dae5bec30b8eeafb61d9f23013659350bf0bf2b34d72950ba3464c8e203ab"
+  },
+  "hp pavilion 15": {
+    "model": "HP Pavilion 15",
+    "src": "/images/products/hp-pavilion-15.webp",
+    "author": "Dienthoaiquangcao68",
+    "source": "https://commons.wikimedia.org/wiki/File:HP_Pavilion_15_cs3095nr.png",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/HP_Pavilion_15_cs3095nr.png",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-31",
+    "sha256": "3070598395ecee041da36dacf06cb2e4fae053b1ca5651ebe7dfbf528078635c",
+    "originalSha256": "b6ccd6ab9d6fe58e84a7051f89a776d6452a22f222afa60e671d30e227e9a432"
+  },
+  "sony wh-1000xm4": {
+    "model": "Sony WH-1000XM4",
+    "src": "/images/products/sony-wh-1000xm4.webp",
+    "author": "Varad Murti",
+    "source": "https://unsplash.com/photos/black-wireless-headphones-on-white-table-GxWwjOjJ5Ss",
+    "originalUrl": "https://images.unsplash.com/photo-1614860243518-c12eb2fdf66c?fm=jpg&w=1600&q=90&fit=max",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-31",
+    "sha256": "296405563fa5f8426e0ac64b037601a6105aa96c909ee352bf65ef68a4374aef",
+    "originalSha256": "2fbffc4ddf7d07cf9adf929163b93bea209e3483de7ed75a5407cc9a505f6f7c"
+  },
+  "samsung t7 portable ssd 1tb": {
+    "model": "Samsung T7 Portable SSD 1TB",
+    "src": "/images/products/samsung-t7.webp",
+    "author": "Subhra Jyoti Paul",
+    "source": "https://unsplash.com/photos/samsung-portable-ssd-next-to-a-backlit-keyboard-sYoBuj-0zms",
+    "originalUrl": "https://images.unsplash.com/photo-1756836857604-6888b1ff6a1b?fm=jpg&w=1600&q=90&fit=max",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-31",
+    "sha256": "86a05dbc1e066ad0771289baeaf481bd153665a8648d1ff47cc30781b260ff0b",
+    "originalSha256": "e95ecee874c8211c8cae3a8133b0600e56fee3c51256ff85a11beb1cd9caa16b"
   }
 };

@@ -133,7 +133,7 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
         Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/js/product-photos.js")).StatusCode);
         Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/images/products/credits.html")).StatusCode);
         using var photos = JsonDocument.Parse(await factory.Client.GetStringAsync("/images/products/sources.json"));
-        Assert.Equal(7, photos.RootElement.EnumerateObject().Count());
+        Assert.Equal(10, photos.RootElement.EnumerateObject().Count());
         foreach (var photo in photos.RootElement.EnumerateObject())
         {
             var response = await factory.Client.GetAsync(photo.Value.GetProperty("src").GetString());

@@ -1,4 +1,4 @@
-"""Download only the individually reviewed Commons photographs below. No database writes.
+"""Download only the individually reviewed photographs below. No database writes.
 
 Requires Pillow. Run from any directory with Python; network access is needed only
 when preparing assets, never when displaying them in the storefront.
@@ -28,11 +28,18 @@ SOURCES = [
     ('Logitech MX Master 3S', 'Logitech MX Master 3S HS01.jpg', 'Hayden Schiff', 'CC BY 4.0', 'by/4.0', 'logitech-mx-master-3s'),
     ('Logitech G305 LIGHTSPEED', 'Une souris Logitech G305..jpg', 'Julien Sinan', 'CC BY-SA 4.0', 'by-sa/4.0', 'logitech-g305'),
     ('Logitech C920 HD Pro Webcam', 'Webcam 01.jpg', 'Pmwiki1', 'CC0 1.0', 'publicdomain/zero/1.0', 'logitech-c920'),
+    ('HP Pavilion 15', 'HP Pavilion 15 cs3095nr.png', 'Dienthoaiquangcao68', 'CC BY-SA 4.0', 'by-sa/4.0', 'hp-pavilion-15'),
+]
+UNSPLASH = [
+    ('Sony WH-1000XM4', 'Varad Murti', 'https://unsplash.com/photos/black-wireless-headphones-on-white-table-GxWwjOjJ5Ss',
+     'https://images.unsplash.com/photo-1614860243518-c12eb2fdf66c?fm=jpg&w=1600&q=90&fit=max', 'sony-wh-1000xm4'),
+    ('Samsung T7 Portable SSD 1TB', 'Subhra Jyoti Paul', 'https://unsplash.com/photos/samsung-portable-ssd-next-to-a-backlit-keyboard-sYoBuj-0zms',
+     'https://images.unsplash.com/photo-1756836857604-6888b1ff6a1b?fm=jpg&w=1600&q=90&fit=max', 'samsung-t7'),
 ]
 
 
 def download(url):
-    if urlsplit(url).hostname not in {'commons.wikimedia.org', 'upload.wikimedia.org'}:
+    if urlsplit(url).hostname not in {'commons.wikimedia.org', 'upload.wikimedia.org', 'images.unsplash.com'}:
         raise ValueError('Unexpected photo host')
     cache = ROOT / 'tmp/product-photo-downloads' / hashlib.sha256(url.encode()).hexdigest()
     if cache.exists():
@@ -50,11 +57,27 @@ def download(url):
             time.sleep(10 * (attempt + 1))
 
 
+def save_photo(raw, slug):
+    with Image.open(io.BytesIO(raw)) as image:
+        if image.format not in {'JPEG', 'MPO', 'PNG', 'WEBP'}:
+            raise ValueError('Not a supported photograph: ' + str(image.format))
+        photo = ImageOps.exif_transpose(image).convert('RGBA')
+        photo.thumbnail((900, 660), Image.Resampling.LANCZOS)
+        canvas = Image.new('RGB', (960, 720), 'white')
+        canvas.paste(photo, ((960 - photo.width) // 2, (720 - photo.height) // 2), photo)
+        target = DEST / (slug + '.webp')
+        canvas.save(target, 'WEBP', quality=85, method=6)
+    return target
+
+
 def main():
     DEST.mkdir(parents=True, exist_ok=True)
     EVIDENCE.mkdir(parents=True, exist_ok=True)
-    photos = {}
+    manifest = DEST / 'sources.json'
+    photos = json.loads(manifest.read_text(encoding='utf-8')) if manifest.exists() else {}
     for model, title, author, license_name, license_path, slug in SOURCES:
+        if model.lower() in photos:
+            continue
         source = 'https://commons.wikimedia.org/wiki/File:' + quote(title.replace(' ', '_'))
         page = download(source).decode('utf-8')
         license_url = ('https://creativecommons.org/' if license_path.startswith('publicdomain')
@@ -66,22 +89,30 @@ def main():
             raise ValueError('Original image link missing: ' + source)
         original_url = html.unescape(match[1]).split('?')[0]
         raw = download(original_url)
-        with Image.open(io.BytesIO(raw)) as image:
-            if image.format not in {'JPEG', 'MPO', 'PNG', 'WEBP'}:
-                raise ValueError('Not a supported photograph: ' + str(image.format))
-            photo = ImageOps.exif_transpose(image).convert('RGB')
-            photo.thumbnail((900, 660), Image.Resampling.LANCZOS)
-            canvas = Image.new('RGB', (960, 720), 'white')
-            canvas.paste(photo, ((960 - photo.width) // 2, (720 - photo.height) // 2))
-            target = DEST / (slug + '.webp')
-            canvas.save(target, 'WEBP', quality=85, method=6)
+        target = save_photo(raw, slug)
         (EVIDENCE / (slug + '.html')).write_text(page, encoding='utf-8')
         photos[model.lower()] = {
             'model': model, 'src': '/images/products/' + target.name,
             'author': author, 'source': source, 'originalUrl': original_url,
             'license': license_name, 'licenseUrl': license_url,
             'changes': 'Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.',
-            'checkedOn': '2026-10-30', 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
+            'checkedOn': '2026-10-31', 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
+            'originalSha256': hashlib.sha256(raw).hexdigest(),
+        }
+        print(model + ': ' + str(target.stat().st_size) + ' bytes')
+    # Each source page explicitly identifies the model and says "Free to use under
+    # the Unsplash License"; reviewed alongside https://unsplash.com/license.
+    for model, author, source, original_url, slug in UNSPLASH:
+        if model.lower() in photos:
+            continue
+        raw = download(original_url)
+        target = save_photo(raw, slug)
+        photos[model.lower()] = {
+            'model': model, 'src': '/images/products/' + target.name,
+            'author': author, 'source': source, 'originalUrl': original_url,
+            'license': 'Unsplash License', 'licenseUrl': 'https://unsplash.com/license',
+            'changes': 'Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.',
+            'checkedOn': '2026-10-31', 'sha256': hashlib.sha256(target.read_bytes()).hexdigest(),
             'originalSha256': hashlib.sha256(raw).hexdigest(),
         }
         print(model + ': ' + str(target.stat().st_size) + ' bytes')

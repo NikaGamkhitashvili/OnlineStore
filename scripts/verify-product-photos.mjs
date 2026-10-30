@@ -13,8 +13,8 @@ const images = after.map(product => {
   assert.ok(existsSync(new URL(`../OnlineStore.API/wwwroot${src}`, import.meta.url)));
   return { id: product.id, model: product.name, src, photograph: Boolean(photoFor(product)) };
 });
-assert.equal(images.filter(i => i.photograph).length, 7);
-const report = { total: images.length, photographs: 7, placeholders: 23, productDataUnchanged: true,
+assert.equal(images.filter(i => i.photograph).length, 10);
+const report = { total: images.length, photographs: 10, placeholders: 20, productDataUnchanged: true,
   allImageFilesLocal: true, images };
 writeFileSync(new URL('../verification/ProductPhotosVerification.json', import.meta.url), JSON.stringify(report, null, 2));
-console.log('30 local image files verified: 7 real photos, 23 unchanged illustrations. Product data unchanged.');
+console.log('30 local image files verified: 10 real photos, 20 unchanged illustrations. Product data unchanged.');
