@@ -7,6 +7,10 @@ export function el(tag, attrs = {}, ...children) {
     else if (key === 'checked' || key === 'disabled' || key === 'selected') node[key] = value;
     else node.setAttribute(key, value === true ? '' : value);
   }
+  if (tag === 'img') node.addEventListener('error', () => {
+    node.onerror = null;
+    if (!node.src.endsWith('/images/product.svg')) { node.src = '/images/product.svg'; node.alt += ' — ფოტო დროებით მიუწვდომელია'; }
+  });
   for (const child of children.flat(Infinity)) if (child !== null && child !== undefined && child !== false)
     node.append(child instanceof Node ? child : document.createTextNode(String(child)));
   return node;
@@ -32,7 +36,7 @@ export const money = value => `${new Intl.NumberFormat('ka-GE', { minimumFractio
 export const date = value => new Intl.DateTimeFormat('ka-GE', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
 export const statusNames = { Pending: 'მოლოდინში', Completed: 'დასრულებული', Cancelled: 'გაუქმებული' };
 export const badge = value => el('span', { class: `badge ${['Pending','Completed','Cancelled'].includes(value) ? value.toLowerCase() : ''}` }, statusNames[value] || value);
-export { imageFor } from './product-images.js';
+export { imageFor } from './product-images.js?v=20261031-2';
 export function toast(message, error = false) {
   const notice = el('div', { class: `toast ${error ? 'toast-error' : ''}`, role: error ? 'alert' : 'status' },
     icon(error ? 'close' : 'check'), el('span', {}, message));

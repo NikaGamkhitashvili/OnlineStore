@@ -39,3 +39,5 @@ artifacts/
 *.cache
 # Office/editor lock files (for example, an opened PDF).
 ~$*
+# Local pre-import preservation snapshot (may contain customer data).
+verification/DummyJsonBefore.json

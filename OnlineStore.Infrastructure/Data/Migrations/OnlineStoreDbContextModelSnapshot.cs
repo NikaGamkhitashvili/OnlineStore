@@ -183,6 +183,43 @@ namespace OnlineStore.Infrastructure.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("OnlineStore.Core.Entities.ProductImport", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Brand")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("ExternalId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("InitialUsdToGelRate")
+                        .HasPrecision(18, 8)
+                        .HasColumnType("decimal(18,8)");
+
+                    b.Property<DateTime>("LastSyncedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateOnly>("RateDate")
+                        .HasColumnType("date");
+
+                    b.Property<string>("SourceJson")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProductId");
+
+                    b.HasIndex("ExternalId")
+                        .IsUnique();
+
+                    b.ToTable("ProductImports", null, t =>
+                        {
+                            t.HasCheckConstraint("CK_ProductImports_SourceJson", "ISJSON([SourceJson]) = 1");
+                        });
+                });
+
             modelBuilder.Entity("OnlineStore.Core.Entities.Order", b =>
                 {
                     b.HasOne("OnlineStore.Core.Entities.Customer", "Customer")
@@ -224,6 +261,17 @@ namespace OnlineStore.Infrastructure.Data.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("OnlineStore.Core.Entities.ProductImport", b =>
+                {
+                    b.HasOne("OnlineStore.Core.Entities.Product", "Product")
+                        .WithOne("ImportMetadata")
+                        .HasForeignKey("OnlineStore.Core.Entities.ProductImport", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("OnlineStore.Core.Entities.Category", b =>
                 {
                     b.Navigation("Products");
@@ -241,6 +289,8 @@ namespace OnlineStore.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("OnlineStore.Core.Entities.Product", b =>
                 {
+                    b.Navigation("ImportMetadata");
+
                     b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618

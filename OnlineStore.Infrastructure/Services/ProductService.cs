@@ -10,14 +10,14 @@ public class ProductService(OnlineStoreDbContext db, StoreTransaction transactio
 {
     public async Task<IReadOnlyList<Product>> GetAllAsync(string? search = null, int? categoryId = null, CancellationToken ct = default)
     {
-        var query = db.Products.AsNoTracking().Include(p => p.Category).AsQueryable();
-        if (!string.IsNullOrWhiteSpace(search)) query = query.Where(p => p.Name.Contains(search.Trim()));
+        var query = db.Products.AsNoTracking().Include(p => p.Category).Include(p => p.ImportMetadata).AsQueryable();
+        if (!string.IsNullOrWhiteSpace(search)) query = query.Where(p => p.Name.Contains(search.Trim()) || (p.ImportMetadata != null && p.ImportMetadata.Brand != null && p.ImportMetadata.Brand.Contains(search.Trim())));
         if (categoryId.HasValue) query = query.Where(p => p.CategoryId == categoryId.Value);
         return await query.OrderBy(p => p.Id).ToListAsync(ct);
     }
 
     public Task<Product?> GetByIdAsync(int id, CancellationToken ct = default) =>
-        db.Products.AsNoTracking().Include(p => p.Category).FirstOrDefaultAsync(p => p.Id == id, ct);
+        db.Products.AsNoTracking().Include(p => p.Category).Include(p => p.ImportMetadata).FirstOrDefaultAsync(p => p.Id == id, ct);
 
     public Task<Product> CreateAsync(Product product, CancellationToken ct = default) => transaction.RunAsync(async () =>
     {
@@ -30,7 +30,7 @@ public class ProductService(OnlineStoreDbContext db, StoreTransaction transactio
 
     public Task<Product> UpdateAsync(int id, Product product, CancellationToken ct = default) => transaction.RunAsync(async () =>
     {
-        var entity = await db.Products.FirstOrDefaultAsync(p => p.Id == id, ct)
+        var entity = await db.Products.Include(p => p.ImportMetadata).FirstOrDefaultAsync(p => p.Id == id, ct)
             ?? throw new NotFoundException("Product", id);
         await ValidateAsync(product, ct);
         Copy(product, entity);

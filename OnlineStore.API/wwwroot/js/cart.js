@@ -1,7 +1,7 @@
-import { api } from './api.js';
-import { cart, reconcileCart, cartIsValid, cartTotal } from './cart-store.js';
-import { photoFor } from './product-images.js';
-import { el, icon, money, imageFor, empty, heading, quantityControl, toast } from './ui.js';
+import { api } from './api.js?v=20261031-2';
+import { cart, reconcileCart, cartIsValid, cartTotal } from './cart-store.js?v=20261031-2';
+import { photoFor } from './product-images.js?v=20261031-2';
+import { el, icon, money, imageFor, empty, heading, quantityControl, toast } from './ui.js?v=20261031-2';
 
 export function orderSummary(lines, action) {
   return el('aside', { class: 'order-summary' }, el('h2', {}, 'შეკვეთის შეჯამება'),

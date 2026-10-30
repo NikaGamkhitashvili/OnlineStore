@@ -74,7 +74,7 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
             Assert.True(paths.GetProperty($"/api/{resource}/{{id}}").TryGetProperty("delete", out _));
             Assert.True(paths.GetProperty(resource == "orders" ? "/api/orders/{id}/status" : $"/api/{resource}/{{id}}").TryGetProperty("put", out _));
         }
-        Assert.Equal(21, paths.EnumerateObject().Sum(p => p.Value.EnumerateObject().Count()));
+        Assert.Equal(22, paths.EnumerateObject().Sum(p => p.Value.EnumerateObject().Count()));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("CreateOrderRequest", out _));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("OrderResponse", out _));
         Assert.True(spec.GetProperty("components").GetProperty("schemas").TryGetProperty("ExchangeRate", out _));
@@ -82,7 +82,7 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
         {
             foreach (var operation in path.Value.EnumerateObject())
             {
-                var status = operation.Name == "post" ? "201" : operation.Name == "delete" ? "204" : "200";
+                var status = operation.Name == "post" && path.Name != "/api/catalog-import/dummyjson" ? "201" : operation.Name == "delete" ? "204" : "200";
                 var response = operation.Value.GetProperty("responses").GetProperty(status);
                 if (status != "204") Assert.True(response.GetProperty("content").GetProperty("application/json").TryGetProperty("schema", out _));
             }
@@ -112,6 +112,7 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
     [InlineData("/")]
     [InlineData("/products")]
     [InlineData("/products/1")]
+    [InlineData("/wishlist")]
     [InlineData("/cart")]
     [InlineData("/checkout")]
     [InlineData("/orders")]
@@ -131,6 +132,8 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
         foreach (var asset in new[] { "/css/styles.css", "/js/app.js", "/js/api.js", "/js/admin.js", "/js/product-images.js", "/images/logo.svg", "/images/laptop.svg", "/images/mouse.svg", "/images/keyboard.svg", "/images/product.svg", "/images/monitor.svg", "/images/desktop.svg", "/images/headphones.svg", "/images/ssd.svg", "/images/webcam.svg", "/images/hub.svg", "/images/mousepad.svg", "/fonts/NotoSansGeorgian.ttf" })
             Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync(asset)).StatusCode);
         Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/js/product-photos.js")).StatusCode);
+        foreach (var asset in new[] { "/js/catalog-data.js", "/js/wishlist-store.js", "/wishlist" })
+            Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync(asset)).StatusCode);
         Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/images/products/credits.html")).StatusCode);
         using var photos = JsonDocument.Parse(await factory.Client.GetStringAsync("/images/products/sources.json"));
         Assert.Equal(10, photos.RootElement.EnumerateObject().Count());

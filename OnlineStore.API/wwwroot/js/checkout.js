@@ -1,7 +1,7 @@
-import { api } from './api.js';
-import { cart, reconcileCart, cartIsValid } from './cart-store.js';
-import { orderSummary } from './cart.js';
-import { el, icon, money, heading, empty, field } from './ui.js';
+import { api } from './api.js?v=20261031-2';
+import { cart, reconcileCart, cartIsValid } from './cart-store.js?v=20261031-2';
+import { orderSummary } from './cart.js?v=20261031-2';
+import { el, icon, money, heading, empty, field } from './ui.js?v=20261031-2';
 
 export async function renderCheckout(main) {
   document.title = 'შეკვეთის გაფორმება — OnlineStore';

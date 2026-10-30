@@ -26,6 +26,12 @@ builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<DevelopmentSeeder>();
 builder.Services.AddScoped<CatalogSeeder>();
+builder.Services.AddScoped<ICatalogImportService, CatalogImportService>();
+builder.Services.AddHttpClient<IDummyJsonClient, DummyJsonClient>(client =>
+{
+    client.BaseAddress = new Uri("https://dummyjson.com/");
+    client.Timeout = TimeSpan.FromSeconds(15);
+});
 builder.Services.AddHttpClient<IExchangeRateService, ExchangeRateService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ExchangeRates:BaseUrl"] ?? "https://api.frankfurter.dev/");
@@ -38,7 +44,15 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseStatusCodePages();
 app.UseHttpsRedirection();
 app.UseDefaultFiles();
-app.UseStaticFiles();
+var staticOptions = new StaticFileOptions
+{
+    OnPrepareResponse = context =>
+    {
+        if (Path.GetExtension(context.File.Name) is ".html" or ".js" or ".css")
+            context.Context.Response.Headers.CacheControl = "no-cache";
+    }
+};
+app.UseStaticFiles(staticOptions);
 
 if (app.Environment.IsDevelopment())
 {
@@ -48,8 +62,8 @@ if (app.Environment.IsDevelopment())
 
 app.MapControllers();
 // Known storefront routes only: unknown /api paths must remain API 404 responses.
-foreach (var route in new[] { "/products", "/products/{id:int}", "/cart", "/checkout", "/orders", "/orders/{id:int}", "/admin" })
-    app.MapFallbackToFile(route, "index.html");
+foreach (var route in new[] { "/products", "/products/{id:int}", "/wishlist", "/cart", "/checkout", "/orders", "/orders/{id:int}", "/admin" })
+    app.MapFallbackToFile(route, "index.html", staticOptions);
 
 if (app.Environment.IsDevelopment() && app.Configuration.GetValue<bool>("SeedData:Enabled"))
 {

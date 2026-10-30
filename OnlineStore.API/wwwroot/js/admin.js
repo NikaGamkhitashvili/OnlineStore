@@ -1,5 +1,5 @@
-import { api } from './api.js';
-import { el, icon, money, date, badge, heading, field, toast, confirmAction, imageFor } from './ui.js';
+import { api } from './api.js?v=20261031-2';
+import { el, icon, money, date, badge, heading, field, toast, confirmAction, imageFor } from './ui.js?v=20261031-2';
 
 const tabs = { products: 'პროდუქტები', categories: 'კატეგორიები', customers: 'მომხმარებლები', orders: 'შეკვეთები' };
 const singular = { products: 'პროდუქტის', categories: 'კატეგორიის', customers: 'მომხმარებლის' };
@@ -54,7 +54,15 @@ export async function renderAdmin(main) {
     drawTable();
   }
   Object.entries(tabs).forEach(([key,label]) => side.append(el('button', { class: 'admin-tab', 'data-tab': key, onClick: () => selectTab(key) }, icon(key === 'customers' ? 'people' : key === 'orders' ? 'bag' : key === 'products' ? 'box' : 'grid'), label, el('span', {}, data[key].length))));
-  side.append(el('a', { href: '/swagger', class: 'admin-api-link' }, 'Swagger API ↗'));
+  const sync = el('button', { class: 'button secondary', onClick: async () => {
+    sync.disabled = true; sync.textContent = 'სინქრონიზაცია მიმდინარეობს…';
+    try {
+      const result = await api.post('catalog-import/dummyjson');
+      toast(`DummyJSON: დამატებულია ${result.created}, განახლებულია ${result.updated}. მაღაზიის ფასი და მარაგი შენარჩუნებულია.`);
+      await renderAdmin(main);
+    } catch (error) { toast(error.message, true); sync.disabled = false; sync.textContent = 'DummyJSON სინქრონიზაცია'; }
+  } }, 'DummyJSON სინქრონიზაცია');
+  side.append(sync, el('small', { class: 'muted' }, 'მხოლოდ ტექნიკა. ახალი მაღაზიის მარაგი: 0. წყაროს საცდელი მარაგი არ იყიდება.'), el('a', { href: '/swagger', class: 'admin-api-link' }, 'Swagger API ↗'));
   search.addEventListener('input', drawTable);
   content.append(el('div', { class: 'admin-section-head' }, el('div', {}, title, count), addButton), el('div', { class: 'admin-search' }, search), tableArea);
   main.replaceChildren(heading('მაღაზიის მართვა', 'კატალოგი, მომხმარებლები და შეკვეთები.'),

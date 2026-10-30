@@ -1,10 +1,13 @@
-import { productPhotos } from './product-photos.js';
+import { productPhotos } from './product-photos.js?v=20261031-2';
+import { sourceImages } from './catalog-data.js?v=20261031-2';
 
 // Exact-name matches only: never substitute a different brand/model's photograph.
 export const photoFor = product => productPhotos[product.name.trim().toLowerCase()];
-export const imageAlt = product => `${product.name} — ${photoFor(product) ? 'რეალური ფოტო' : 'დროებითი საილუსტრაციო გამოსახულება'}`;
+export const imageAlt = product => `${product.name} — ${sourceImages(product).length ? 'DummyJSON-ის პროდუქტის ფოტო' : photoFor(product) ? 'რეალური ფოტო' : 'დროებითი საილუსტრაციო გამოსახულება'}`;
 
 export function imageFor(product) {
+  const images = sourceImages(product);
+  if (images.length) return images[0];
   const photo = photoFor(product);
   if (photo) return photo.src;
   return illustrationFor(product);

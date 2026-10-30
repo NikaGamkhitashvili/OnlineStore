@@ -15,10 +15,20 @@ public class OnlineStoreDbContext : DbContext
     public DbSet<Customer> Customers => Set<Customer>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+    public DbSet<ProductImport> ProductImports => Set<ProductImport>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        var import = modelBuilder.Entity<ProductImport>();
+        import.ToTable("ProductImports", t => t.HasCheckConstraint("CK_ProductImports_SourceJson", "ISJSON([SourceJson]) = 1"));
+        import.HasKey(p => p.ProductId);
+        import.HasIndex(p => p.ExternalId).IsUnique();
+        import.Property(p => p.Brand).HasMaxLength(100);
+        import.Property(p => p.InitialUsdToGelRate).HasPrecision(18, 8);
+        import.HasOne(p => p.Product).WithOne(p => p.ImportMetadata)
+            .HasForeignKey<ProductImport>(p => p.ProductId).OnDelete(DeleteBehavior.Cascade);
 
         var product = modelBuilder.Entity<Product>();
         product.ToTable("Products", table =>

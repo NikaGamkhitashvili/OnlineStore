@@ -32,7 +32,7 @@ test('reviewed photographs match exact models and have local WebP files with cre
   assert.deepEqual(productPhotos, manifest);
   for (const photo of Object.values(productPhotos)) {
     assert.equal(imageFor({ name: photo.model }), photo.src);
-    assert.equal(photoFor({ name: ` ${photo.model.toUpperCase()} ` }), photo);
+    assert.deepEqual(photoFor({ name: ` ${photo.model.toUpperCase()} ` }), photo);
     assert.match(imageAlt({ name: photo.model }), /რეალური ფოტო/);
     assert.match(photo.source, /^https:\/\/(commons\.wikimedia\.org\/wiki\/File:|unsplash\.com\/photos\/)/);
     assert.match(photo.license, /^CC (BY|BY-SA) 4\.0$|^CC0 1\.0$|^Unsplash License$/);

@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#142a2a">
-  <meta name="description" content="OnlineStore — პროდუქტები, კალათა და შეკვეთები ერთ სივრცეში.">
-  <title>OnlineStore — ონლაინ მაღაზია</title>
+  <meta name="description" content="OnlineStore - პროდუქტები, კალათა და შეკვეთები ერთ სივრცეში.">
+  <title>OnlineStore - ონლაინ მაღაზია</title>
   <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/css/styles.css">
-  <script type="module" src="/js/app.js"></script>
+  <link rel="stylesheet" href="/css/styles.css?v=20261031-2">
+  <script type="module" src="/js/app.js?v=20261031-2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">შინაარსზე გადასვლა</a>
@@ -19,7 +19,7 @@
       <button id="menu-toggle" class="icon-button menu-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="მენიუს გახსნა"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       <a class="cart-link" href="/cart" aria-label="კალათა"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l3 12h11l3-9H6M9 20h.01M18 20h.01"/></svg><span class="cart-word">კალათა</span><span id="cart-count" class="cart-count">0</span></a>
     </div>
-    <div class="nav-strip"><nav class="container main-nav" id="main-nav" aria-label="მთავარი მენიუ"><a href="/" data-nav="home">მთავარი</a><a href="/products" data-nav="products">პროდუქტები</a><a href="/orders" data-nav="orders">შეკვეთები</a><a href="/admin" data-nav="admin">დემო მართვა</a><a class="api-link" href="/swagger">Swagger API <span aria-hidden="true">↗</span></a></nav></div>
+    <div class="nav-strip"><nav class="container main-nav" id="main-nav" aria-label="მთავარი მენიუ"><a href="/" data-nav="home">მთავარი</a><a href="/products" data-nav="products">პროდუქტები</a><a href="/wishlist" data-nav="wishlist">სურვილების სია</a><a href="/orders" data-nav="orders">შეკვეთები</a><a href="/admin" data-nav="admin">დემო მართვა</a><a class="api-link" href="/swagger">Swagger API <span aria-hidden="true">↗</span></a></nav></div>
   </header>
   <main id="main" class="container main-content" tabindex="-1"><div class="loading" role="status">მონაცემები იტვირთება…</div></main>
   <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="/"><img src="/images/logo.svg" alt="" width="30" height="30">OnlineStore</a><p>შენი ყოველდღიური არჩევანი, ერთ სივრცეში.</p><div><a href="/products">კატალოგი</a><a href="/orders">შეკვეთები</a><a href="/swagger">API დოკუმენტაცია</a><a href="/images/products/credits.html">ფოტოების წყაროები</a></div><div class="currency-display"><button id="exchange-rate-button" type="button" class="text-button">USD / GEL კურსის ნახვა</button><span id="exchange-rate-result" role="status"></span></div><small>სასწავლო პროექტი · დემონსტრაცია · გადახდის გარეშე</small></div></footer>

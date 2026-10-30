@@ -1,11 +1,20 @@
 using OnlineStore.Core.Entities;
+using System.Text.Json;
 
 namespace OnlineStore.API.DTOs;
 
 public record ProductResponse(int Id, string Name, string Description, decimal Price, int StockQuantity, int CategoryId)
 {
-    public static ProductResponse From(Product p) => new(p.Id, p.Name, p.Description, p.Price, p.StockQuantity, p.CategoryId);
+    public ProductImportResponse? ImportMetadata { get; init; }
+    public static ProductResponse From(Product p) => new(p.Id, p.Name, p.Description, p.Price, p.StockQuantity, p.CategoryId)
+    {
+        ImportMetadata = p.ImportMetadata is { } m ? new(m.ExternalId, m.Brand, m.InitialUsdToGelRate,
+            m.RateDate, DateTime.SpecifyKind(m.LastSyncedAtUtc, DateTimeKind.Utc), JsonSerializer.Deserialize<JsonElement>(m.SourceJson)) : null
+    };
 }
+
+public record ProductImportResponse(int ExternalId, string? Brand, decimal InitialUsdToGelRate,
+    DateOnly RateDate, DateTime LastSyncedAtUtc, JsonElement Source);
 
 public record CategoryResponse(int Id, string Name, string Description)
 {

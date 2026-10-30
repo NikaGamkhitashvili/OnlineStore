@@ -1,6 +1,6 @@
-import { el, failure, loading } from './ui.js';
-import { cart } from './cart-store.js';
-import { api } from './api.js';
+import { el, failure, loading } from './ui.js?v=20261031-2';
+import { cart } from './cart-store.js?v=20261031-2';
+import { api } from './api.js?v=20261031-2';
 
 const path = location.pathname.replace(/\/$/, '') || '/';
 const main = document.querySelector('#main');
@@ -35,23 +35,25 @@ document.querySelector('#menu-toggle').addEventListener('click', event => {
   document.querySelector('#main-nav').classList.toggle('is-open', open);
 });
 const nav = path === '/' ? 'home' : path.split('/')[1];
-document.querySelector(`[data-nav="${['home','products','orders','admin'].includes(nav) ? nav : 'none'}"]`)?.setAttribute('aria-current', 'page');
+document.querySelector(`[data-nav="${['home','products','wishlist','orders','admin'].includes(nav) ? nav : 'none'}"]`)?.setAttribute('aria-current', 'page');
 
 async function render() {
   main.replaceChildren(loading());
   try {
     if (path === '/' || path === '/products') {
-      const module = await import('./products.js'); await module.renderCatalog(main, path === '/');
+      const module = await import('./products.js?v=20261031-2'); await module.renderCatalog(main, path === '/');
     } else if (/^\/products\/\d+$/.test(path)) {
-      const module = await import('./products.js'); await module.renderProduct(main, Number(path.split('/')[2]));
+      const module = await import('./products.js?v=20261031-2'); await module.renderProduct(main, Number(path.split('/')[2]));
+    } else if (path === '/wishlist') {
+      const module = await import('./products.js?v=20261031-2'); await module.renderWishlist(main);
     } else if (path === '/cart') {
-      const module = await import('./cart.js'); await module.renderCart(main);
+      const module = await import('./cart.js?v=20261031-2'); await module.renderCart(main);
     } else if (path === '/checkout') {
-      const module = await import('./checkout.js'); await module.renderCheckout(main);
+      const module = await import('./checkout.js?v=20261031-2'); await module.renderCheckout(main);
     } else if (path === '/orders' || /^\/orders\/\d+$/.test(path)) {
-      const module = await import('./orders.js'); await module.renderOrders(main, path.split('/')[2] ? Number(path.split('/')[2]) : null);
+      const module = await import('./orders.js?v=20261031-2'); await module.renderOrders(main, path.split('/')[2] ? Number(path.split('/')[2]) : null);
     } else if (path === '/admin') {
-      const module = await import('./admin.js'); await module.renderAdmin(main);
+      const module = await import('./admin.js?v=20261031-2'); await module.renderAdmin(main);
     } else main.replaceChildren(el('h1', {}, 'გვერდი ვერ მოიძებნა'), el('a', { href: '/' }, 'მთავარზე დაბრუნება'));
   } catch (error) { main.replaceChildren(failure(error, render)); }
 }

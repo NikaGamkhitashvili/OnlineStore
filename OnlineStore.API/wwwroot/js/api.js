@@ -5,7 +5,7 @@ export class ApiError extends Error {
 async function request(path, method = 'GET', body) {
   try {
     const response = await fetch(`/api/${path}`, {
-      method, cache: 'no-store', signal: AbortSignal.timeout(20000),
+      method, cache: 'no-store', signal: AbortSignal.timeout(path === 'catalog-import/dummyjson' ? 45000 : 20000),
       headers: { Accept: 'application/json', ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) },
       ...(body === undefined ? {} : { body: JSON.stringify(body) })
     });
