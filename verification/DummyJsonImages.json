@@ -1,0 +1,697 @@
+[
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods-max-silver/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-homepod-mini-cosmic-grey/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpods/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-iphone-charger/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-airpower-wireless-charger/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-magsafe-battery-pack/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/apple-watch-series-4-gold/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-lamp-with-iphone/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/amazon-echo-plus/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/beats-flex-wireless-earphones/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/selfie-stick-monopod/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/4.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/iphone-12-silicone-case-with-magsafe-plum/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/monopod/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/mobile-accessories/tv-studio-camera-pedestal/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/4.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-s1/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-v9/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s10/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/4.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/1.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/smartphones/vivo-x21/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/4.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/2.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/4.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  },
+  {
+    "Url": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+    "Status": 200,
+    "Type": "image/webp"
+  }
+]

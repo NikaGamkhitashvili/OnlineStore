@@ -1,0 +1,43 @@
+{
+  "VerifiedAt": "2026-10-31T01:18:34.918629+04:00",
+  "Products": 68,
+  "Categories": 12,
+  "Imported": 38,
+  "CategoriesImported": [
+    {
+      "Category": "smartphones",
+      "Imported": 16,
+      "StoreCategoryTotal": 16
+    },
+    {
+      "Category": "laptops",
+      "Imported": 5,
+      "StoreCategoryTotal": 12
+    },
+    {
+      "Category": "tablets",
+      "Imported": 3,
+      "StoreCategoryTotal": 3
+    },
+    {
+      "Category": "mobile-accessories",
+      "Imported": 14,
+      "StoreCategoryTotal": 14
+    }
+  ],
+  "BrandSearchApple": 14,
+  "DetailChecksPassed": 68,
+  "OpenApiOperations": 22,
+  "StoreInventoryInitiallyZero": true,
+  "FirstImportCreated": 38,
+  "RepeatImportCreated": 0,
+  "RepeatImportUpdated": 38,
+  "DotNetTestsPassed": 68,
+  "JavaScriptTestsPassed": 16,
+  "BuildErrors": 0,
+  "BuildWarnings": 0,
+  "PendingModelChanges": false,
+  "ExistingRowsUnchanged": true,
+  "ImageUrlsChecked": 139,
+  "ImageUrlsHttp200": 139
+}

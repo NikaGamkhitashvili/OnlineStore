@@ -114,3 +114,24 @@
 | Frontend დოკუმენტაცია და პრეზენტაციის სცენარი | COMPLETE | README.md; FRONTEND_IMPLEMENTATION.md; PROJECT_PRESENTATION.md | source/document review | მზადაა |
 
 Frontend-ის უახლესი შედეგებია `verification/FrontendBuild.txt`, `FrontendTests.txt`, `FrontendBrowserVerification.json`, `FrontendSqlFinal.txt` და screenshots. წინა `TestSummary.json`/OnlineStore.trx შეიცავს backend ეტაპის 47 ტესტის ისტორიულ შედეგს; frontend-ის მიმდინარე .NET შედეგია 56, დამატებით 9 Node ტესტი. GitHub და პირადი დაცვა ისევ ცალკე ჩასაბარებელი მოქმედებებია.
+# DummyJSON დამატების მიმდინარე შემოწმება — 2026-10-31
+
+PDF-ის მოთხოვნების ქვემოთ არსებული შეფასებები შენარჩუნებულია. ახალი ინტეგრაცია ცალკე გაფართოებაა; საწყისი ხუთი ცხრილის სქემა და 20 სავალდებულო API ოპერაცია უცვლელია. მიმდინარე ტესტები: **68 .NET + 16 Node PASS**. ძველი ეტაპების რიცხვები ისტორიული მტკიცებულებებია. GitHub-ზე ადრე გამოქვეყნებული ვერსიის შემდეგ ეს დამატება ლოკალურად შესრულდა; ავტომატური push/deploy არ გაკეთებულა.
+
+| დამატებითი მოთხოვნა | სტატუსი | ფაილები | შემოწმება | შედეგი |
+|---|---|---|---|---|
+| პროექტის სრული განხილვა კოდის ცვლილებამდე | COMPLETE | DUMMYJSON_INTEGRATION.md | წყაროები, სქემა, UI მოდულები, კონფიგურაცია | განხილვა დოკუმენტირებულია |
+| მხოლოდ ოთხი ტექნოლოგიური კატეგორია | COMPLETE | DummyJsonClient.cs | რეალური API + allowlist ტესტი | 38 პროდუქტი |
+| სრული მეტამონაცემები და ExternalId | COMPLETE | ProductImport.cs; Responses.cs; ახალი მიგრაცია | SQL/API/metadata tests | SourceJson, უნიკალური ExternalId |
+| უსაფრთხო მიგრაცია/მონაცემების შენარჩუნება | COMPLETE | AddDummyJsonProductImports; DummyJsonPreservation.json | მიგრაციის Up განხილვა; ყველა ძველი ჩანაწერის შედარება | ძველი მონაცემები უცვლელია |
+| განმეორებითი/ერთდროული იმპორტი | COMPLETE | CatalogImportService.cs; CatalogTransactionTests.cs | რეალური repeat + SQL concurrency/rollback | 0 დუბლიკატი; სრული rollback |
+| ადმინისტრატორის ველების შენარჩუნება | COMPLETE | CatalogImportService.cs; DummyJsonTests.cs | edit → sync → SQL/API compare | ფასი/მარაგი/სახელი/აღწერა/კატეგორია შენარჩუნდა |
+| წყაროს მარაგის განცალკევება | COMPLETE | CatalogImportService.cs; OrderService.cs | source stock 99; store stock 0; order 409 | ყალბი მარაგი არ იყიდება |
+| მთავარი გვერდი/კატალოგი/დეტალები | COMPLETE | products.js; catalog-data.js | რეალური ბრაუზერი desktop/mobile; ყველა API detail | 68 პროდუქტი, 12-იანი პაგინაცია, გალერეა/შეფასებები |
+| ბრენდი/კატეგორია/ფასი/შეფასება/დალაგება | COMPLETE | ProductService.cs; catalog-data.js | .NET/Node + browser combined filters | PASS |
+| კალათა/wishlist/checkout | COMPLETE | wishlist-store.js; products.js; cart.js; checkout.js | Node, SQL imported order, browser navigation/reload | შიდა ID და სერვერული ფასი შენარჩუნდა |
+| ხელით სინქრონიზაცია და გარე შეცდომები | COMPLETE | CatalogImportController.cs; admin.js; DummyJsonClient.cs | UI sync, mocked errors, Production 404 | 0 ახალი / 38 განახლებული; 502/503/504 |
+| პროდუქტის გამოსახულებების დატვირთვა | COMPLETE | product-images.js; ui.js; DummyJsonImages.json | 139 URL HTTP check; browser gallery | 139/139 HTTP 200; უსაფრთხო fallback |
+| დოკუმენტაცია და გაშვების ინსტრუქცია | COMPLETE | README.md; DUMMYJSON_INTEGRATION.md | წყაროსა და ბრძანებების გადამოწმება | მომზადებულია |
+
+შეზღუდვები: ახალი DummyJSON ფოტოები CDN-დან მოდის და offline რეჟიმში fallback გამოიყენება; მათზე გადანაწილების ლიცენზია არ არის გამოგონილი. ძველი 20 მოდელის ნებადართული ზუსტი ფოტო ჯერ არ არის. Auth/რეალური payment არ არსებობს; რეალურ დეველოპერულ ბაზაში ახალი შეკვეთა არ შექმნილა, სრული order სცენარი იზოლირებულ SQL ტესტში შემოწმდა. დეტალები: [DUMMYJSON_INTEGRATION.md](DUMMYJSON_INTEGRATION.md).

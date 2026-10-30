@@ -4,12 +4,14 @@
 
 ## ძირითადი შესაძლებლობები
 
-- კატალოგი, სახელით ძებნა, კატეგორიების ფილტრი, ფასით დალაგება და პროდუქტის დეტალები.
+- ტექნოლოგიური კატალოგი, სახელით/ბრენდით ძებნა, კატეგორიის/ფასის/შეფასების ფილტრები, დალაგება და 12-პროდუქტიანი პაგინაცია.
+- DummyJSON-ის 38 პროდუქტი სრული მეტამონაცემებით, გალერეითა და დემო შეფასებებით; ბრაუზერში შენახული სურვილების სია.
 - კალათა, რაოდენობების მართვა და შეკვეთის გაფორმება რეალურ API-სთან.
 - პროდუქტების, კატეგორიებისა და მომხმარებლების CRUD; შეკვეთების ისტორია და სტატუსები.
 - შეკვეთის ატომური შენახვა, ისტორიული ფასი და კონკურენტული მოთხოვნებისას მარაგის დაცვა.
 - Swagger/OpenAPI, მოთხოვნების ვალიდაცია და ერთიანი შეცდომის პასუხები.
-- 30 პროდუქტის განმეორებით უსაფრთხო seed; 10 მოდელზე ლიცენზირებული რეალური ფოტო და 20 დროებითი ილუსტრაცია.
+- საწყისი 30 პროდუქტის უსაფრთხო seed და დამატებით ხელით გასაშვები, დუბლიკატებისგან დაცული DummyJSON იმპორტი. ამ ბაზაში სულ 68 პროდუქტია; ძველი 30 პროდუქტი უცვლელია.
+- ძველ კატალოგში 10 ლოკალური ლიცენზირებული ფოტო და 20 დროებითი ილუსტრაცია; იმპორტირებულ პროდუქტებზე DummyJSON CDN-ის ფოტოები.
 
 | ნაწილი | ტექნოლოგია |
 |---|---|
@@ -41,7 +43,7 @@ dotnet run --project OnlineStore.API --launch-profile https --no-build
 
 ```powershell
 dotnet test OnlineStore.sln --no-build
-node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs
+node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs scripts/catalog-tests.mjs
 ```
 
 Node.js საჭიროა მხოლოდ JavaScript ტესტებისთვის. SQL integration ტესტებისთვის ანგარიშს დროებითი სატესტო ბაზების შექმნა/წაშლის უფლება სჭირდება.
@@ -55,11 +57,12 @@ Node.js საჭიროა მხოლოდ JavaScript ტესტებ�
 ## მიმდინარე შედეგი
 
 - Build: 0 შეცდომა, 0 გაფრთხილება.
-- ავტომატური ტესტები: **57 წარმატებული, 0 წარუმატებელი, 0 გამოტოვებული**, დამატებით 11 JavaScript ტესტი (კალათა და სურათები).
+- ავტომატური ტესტები: **68 წარმატებული, 0 წარუმატებელი, 0 გამოტოვებული**, დამატებით **16 წარმატებული JavaScript ტესტი** (კალათა, სურათები, ფილტრები და სურვილების სია).
 - ტესტები რეალურ SQL Server-ზე მუშაობს უნიკალურ `OnlineStoreTests_GUID` ბაზებში; განვითარებისთვის გამოყენებული OnlineStoreDb არ იშლება და არ ნულდება.
-- Swagger: https://localhost:7156/swagger — 20 სავალდებულო ოპერაცია + 1 ვალუტის კურსის ოპერაცია.
+- Swagger: https://localhost:7156/swagger — 20 სავალდებულო ოპერაცია + ვალუტის კურსი + DummyJSON იმპორტი = 22 ოპერაცია.
 - რეალური გარე მოთხოვნა: HTTP 200, USD→GEL, პროვაიდერის თარიღი 2026-10-29, მიღებული კურსი 2.5915. ეს შემოწმების მომენტის შედეგია და არა მუდმივი მნიშვნელობა.
-- ორივე მიგრაცია გამოყენებულია; სქემა მოდელს შეესაბამება.
+- სამივე მიგრაცია გამოყენებულია; EF-ის pending model changes არ არის.
+- DummyJSON: პირველი იმპორტი 38 ახალი; განმეორებითი 0 ახალი / 38 განახლებული; სულ 68 პროდუქტი და 12 კატეგორია. დეტალები: [DUMMYJSON_INTEGRATION.md](DUMMYJSON_INTEGRATION.md).
 - რეპოზიტორია: [NikaGamkhitashvili/OnlineStore](https://github.com/NikaGamkhitashvili/OnlineStore) · Private · ძირითადი branch: `main`.
 
 გამოქვეყნებამდე განმეორებითი შემოწმება: `verification/PublishRestore.txt`, `PublishBuild.txt`, `PublishTests.txt`, `PublishJavaScriptTests.txt` და `PublishAudit.json`. წინა ეტაპების მტკიცებულებებიც `verification/`-ში ინახება. გენერირებული TRX ანგარიშები `TestResults/`-შია და Git-ში არ შედის.
@@ -112,6 +115,7 @@ SSMS: Database Engine → localhost → Windows Authentication → Connect → D
 
 - `20261029200952_InitialCreate` — ხუთი ცხრილი, PK/FK, ინდექსები და CHECK შეზღუდვები.
 - `20261029203112_AddReportingObjects` — მხოლოდ დამატებითი View და Stored Procedure; არსებული ცხრილები/მონაცემები არ იცვლება.
+- `20261030210327_AddDummyJsonProductImports` — მხოლოდ ახალი `ProductImports` ცხრილი, ProductId FK/PK, უნიკალური ExternalId და JSON CHECK. ძველი ცხრილების სვეტები არ იცვლება.
 
 მიგრაციები API-ის გაშვებისას ავტომატურად არ გამოიყენება. გამოიყენე `dotnet ef database update` ზემოთ ნაჩვენები project/startup-project-ით. განმეორებითი update უკვე გამოყენებულ მიგრაციებს ხელახლა არ ასრულებს. **არ გამოიყენო database drop ან rollback განვითარების ბაზაზე.** Down მეთოდები მხოლოდ EF-ის გაუქმების ინსტრუქციებია და განვითარების ბაზაზე არ შესრულებულა.
 
@@ -123,7 +127,7 @@ sqlcmd -S localhost -E -C -d OnlineStoreDb -b -i scripts/VerifyDatabase.sql
 
 ## მონაცემთა ბაზის სქემა
 
-ყველა Id: int IDENTITY(1,1), Primary Key. Navigation properties ახალი სვეტები არ არის.
+საწყისი ხუთი ცხრილის Id: int IDENTITY(1,1), Primary Key. Navigation properties ახალი სვეტები არ არის. ახალი `ProductImports.ProductId` ერთდროულად PK/FK-ია და IDENTITY არ არის; Products-თან კავშირი 1:0..1.
 
 | ცხრილი | სხვა სვეტები |
 |---|---|
@@ -281,7 +285,7 @@ PDF-ის შეფასების ცხრილი მოითხოვ�
 - პროვაიდერის არასასურველი HTTP სტატუსი ან არასწორი/ცარიელი JSON/კურსი — 502; კავშირის პრობლემა — 503; timeout — 504.
 - არასწორი, ცარიელი ან ერთმანეთის ტოლი ვალუტის კოდები — 400. რეალურ ქსელთან ერთად ცალკე იზოლირებულ ტესტებში მოწმდება provider failure და malformed response.
 
-კურსი შეკვეთაში ავტომატურად არ გარდაქმნის ფასებს. ქსელის მიუწვდომლობა CRUD-ს არ აჩერებს. ინტეგრაცია არ აყალბებს წარმატებას და არ იყენებს ჩაშენებულ fallback კურსს.
+DummyJSON-ის ახალი პროდუქტის საწყისი GEL ფასი ერთხელ ამ კურსით გამოითვლება; არსებული მაღაზიის ფასები reimport-ზე არ იცვლება. კურსი შეკვეთაში ავტომატურად არ გარდაქმნის ფასებს. ქსელის მიუწვდომლობა CRUD-ს არ აჩერებს. ინტეგრაცია არ აყალბებს წარმატებას და არ იყენებს ჩაშენებულ fallback კურსს.
 
 ## არქიტექტურა და SOLID/DI
 
@@ -407,7 +411,7 @@ Footer-ის USD/GEL ღილაკი იყენებს არსებ�
 dotnet restore OnlineStore.sln
 dotnet build OnlineStore.sln --no-restore
 dotnet test OnlineStore.sln --logger "trx;LogFileName=Frontend.trx" --results-directory TestResults
-node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs
+node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs scripts/catalog-tests.mjs
 ```
 
 Node მხოლოდ JavaScript-ის ტესტებისთვის გამოიყენება; მაღაზიის გასაშვებად Node/npm საჭირო არ არის. თუ Node PATH-ში არაა, მიუთითე შენს გარემოში არსებული Node executable-ის სრული გზა.
@@ -419,3 +423,22 @@ Node მხოლოდ JavaScript-ის ტესტებისთვის �
 დეტალები: [FRONTEND_IMPLEMENTATION.md](FRONTEND_IMPLEMENTATION.md). ვიზუალური მასალა: `verification/frontend-desktop.png`, `verification/frontend-mobile.png`, `verification/frontend-order-proof.png`; შემოწმების ანგარიში `verification/FrontendBrowserVerification.json`. SQL მტკიცებულება: `verification/FrontendSqlBeforeCleanup.txt` და `verification/FrontendSqlFinal.txt` (პირველი სახელი ისტორიულია — cleanup არ შესრულებულა).
 
 ![მაღაზიის მთავარი გვერდი](verification/frontend-desktop.png)
+
+## DummyJSON ტექნოლოგიური კატალოგის განახლება
+
+1. გამოიყენე მიგრაციები და გაუშვი API Development რეჟიმში.
+2. გახსენი `/admin` → **DummyJSON სინქრონიზაცია**. ალტერნატივაა Swagger-ში `POST /api/catalog-import/dummyjson`.
+3. ახალი პროდუქტები მაღაზიაში 0 მარაგით ემატება. რეალური მარაგი და GEL ფასი ადმინისტრატორის რედაქტირების ფორმით იმართება. DummyJSON-ის stock მხოლოდ წყაროს დემო ინფორმაციაა.
+4. განმეორებითი გაშვება წყაროს მეტამონაცემებს აახლებს, მაღაზიის დასახელებას, აღწერას, კატეგორიას, ფასს და მარაგს ინარჩუნებს.
+
+```powershell
+Invoke-RestMethod https://localhost:7156/api/catalog-import/dummyjson -Method Post
+```
+
+იმპორტი ავტომატურად არ ეშვება არც startup-ზე და არც Production რეჟიმში. ახალი საწყისი მონაცემები მოითხოვს DummyJSON-სა და Frankfurter-თან ინტერნეტკავშირს. შემდგომში პროდუქტის ინფორმაცია SQL-დან მოდის; ახალი ფოტოები CDN-დან იტვირთება და ინტერნეტის გარეშე დროებითი გამოსახულება გამოჩნდება.
+
+წყაროს ფასი USD-ად არის მიჩნეული, რადგან პასუხში currency ცალკე არ არის მითითებული. საწყისი კონვერტაციის კურსი/თარიღი ინახება. წყაროს ფასდაკლება, გარანტია, მიწოდების პირობა და შეფასებები მკაფიოდ არის მონიშნული როგორც დემო ინფორმაცია; ფასდაკლება GEL ფასიდან დამატებით არ გამოიქვითება.
+
+სურვილების სია: `/wishlist`, ამ ბრაუზერის localStorage-ში, მხოლოდ შიდა ProductId-ებით. არსებული კალათის გასაღები და checkout-ის სერვერული ფასები შენარჩუნებულია. ანგარიშები და ონლაინ გადახდა ამ სასწავლო პროექტში არ არსებობს.
+
+განხილვა, არქიტექტურა, კატეგორიები, ფაილები, შემოწმებები და შეზღუდვები: [DUMMYJSON_INTEGRATION.md](DUMMYJSON_INTEGRATION.md). ახალი ცვლილებები ავტომატურად GitHub-ზე არ ატვირთულა და არ დაიდეპლოია.

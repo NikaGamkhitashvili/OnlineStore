@@ -1,0 +1,32 @@
+[
+  {
+    "Table": "Categories",
+    "OriginalRows": 9,
+    "CurrentRows": 12,
+    "OriginalRowsUnchanged": true
+  },
+  {
+    "Table": "Products",
+    "OriginalRows": 30,
+    "CurrentRows": 68,
+    "OriginalRowsUnchanged": true
+  },
+  {
+    "Table": "Customers",
+    "OriginalRows": 3,
+    "CurrentRows": 3,
+    "OriginalRowsUnchanged": true
+  },
+  {
+    "Table": "Orders",
+    "OriginalRows": 2,
+    "CurrentRows": 2,
+    "OriginalRowsUnchanged": true
+  },
+  {
+    "Table": "OrderItems",
+    "OriginalRows": 3,
+    "CurrentRows": 3,
+    "OriginalRowsUnchanged": true
+  }
+]
