@@ -1,0 +1,10 @@
+{
+  "commitsReviewed": 9,
+  "uniqueHistoricalTextBlobsScanned": 178,
+  "binaryBlobsInventoried": 20,
+  "trackedFiles": 162,
+  "findingsWithoutValues": [],
+  "forbiddenTrackedFiles": [],
+  "requiredFilesTracked": true,
+  "method": "All reachable unique historical UTF-8 blobs and current tracked text scanned for known token/private-key/assigned-secret/SQL-password patterns; configuration manually reviewed. Pattern scanning cannot prove absence of every possible secret."
+}

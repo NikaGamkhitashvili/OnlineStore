@@ -2,6 +2,56 @@
 
 ონლაინ მაღაზიის მართვის სასწავლო პროექტი, უნივერსიტეტის `FinalProject.pdf`-ის მიხედვით. შესრულებულია PDF-ის ყველა 20 API ოპერაცია და HttpClient-ის ინტეგრაცია. არსებული Stage 1 solution, ხუთი მოდელი და მონაცემთა ბაზა შენარჩუნებულია. დამატებულია HTML/CSS/Vanilla JavaScript frontend, რომელიც იმავე API პროექტიდან მუშაობს.
 
+## ძირითადი შესაძლებლობები
+
+- კატალოგი, სახელით ძებნა, კატეგორიების ფილტრი, ფასით დალაგება და პროდუქტის დეტალები.
+- კალათა, რაოდენობების მართვა და შეკვეთის გაფორმება რეალურ API-სთან.
+- პროდუქტების, კატეგორიებისა და მომხმარებლების CRUD; შეკვეთების ისტორია და სტატუსები.
+- შეკვეთის ატომური შენახვა, ისტორიული ფასი და კონკურენტული მოთხოვნებისას მარაგის დაცვა.
+- Swagger/OpenAPI, მოთხოვნების ვალიდაცია და ერთიანი შეცდომის პასუხები.
+- 30 პროდუქტის განმეორებით უსაფრთხო seed; 10 მოდელზე ლიცენზირებული რეალური ფოტო და 20 დროებითი ილუსტრაცია.
+
+| ნაწილი | ტექნოლოგია |
+|---|---|
+| Backend | C#, .NET 10, ASP.NET Core Controllers, Dependency Injection |
+| მონაცემები | SQL Server, EF Core, LINQ, მიგრაციები |
+| Frontend | HTML, CSS, Vanilla JavaScript; ფაილები `OnlineStore.API/wwwroot/`-ში |
+| დოკუმენტაცია | Swagger/OpenAPI; ქართული README და პრეზენტაცია |
+| ტესტები | xUnit, ASP.NET Core integration tests, Node.js-ის ჩაშენებული test runner |
+
+## ლექტორისთვის: რეპოზიტორიიდან გაშვება
+
+რეპოზიტორია Private-ია; სანახავად და clone-ისთვის მფლობელმა ლექტორს GitHub წვდომა უნდა მისცეს. ჩამოტვირთული პროექტის საქაღალდეში გაუშვით:
+
+```powershell
+git clone https://github.com/NikaGamkhitashvili/OnlineStore.git
+Set-Location OnlineStore
+dotnet tool restore
+dotnet restore OnlineStore.sln
+dotnet build OnlineStore.sln --no-restore
+dotnet ef database update --project OnlineStore.Infrastructure --startup-project OnlineStore.API
+dotnet run --project OnlineStore.API --launch-profile https --no-build
+```
+
+წინასწარ საჭიროა ქვემოთ აღწერილი SQL Server და Windows Authentication. მიგრაცია ქმნის სქემას; პირველი Development გაშვება ცარიელ ბაზაზე დემო მონაცემებს ამატებს. ბაზის backup/ფაილები რეპოზიტორიას არ სჭირდება. არსებული მონაცემები არ ნულდება.
+
+მაღაზია: **https://localhost:7156/** · Swagger: **https://localhost:7156/swagger**. Frontend ცალკე სერვერს ან npm build-ს არ საჭიროებს. HTML ფაილი პირდაპირ `file://` მისამართით არ გახსნათ — მაღაზია გაშვებული API-დან მუშაობს.
+
+ტესტები გაუშვით API-ის გაჩერების შემდეგ, რათა Windows-ზე build-ის ფაილები თავისუფალი იყოს:
+
+```powershell
+dotnet test OnlineStore.sln --no-build
+node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs
+```
+
+Node.js საჭიროა მხოლოდ JavaScript ტესტებისთვის. SQL integration ტესტებისთვის ანგარიშს დროებითი სატესტო ბაზების შექმნა/წაშლის უფლება სჭირდება.
+
+## ინტერფეისის მაგალითები
+
+![პროდუქტის გვერდი რეალური ფოტოთი](verification/AdditionalPhotosSony.png)
+
+![პროდუქტების კატალოგი](verification/ProductPhotosCatalog.png)
+
 ## მიმდინარე შედეგი
 
 - Build: 0 შეცდომა, 0 გაფრთხილება.
@@ -10,9 +60,9 @@
 - Swagger: https://localhost:7156/swagger — 20 სავალდებულო ოპერაცია + 1 ვალუტის კურსის ოპერაცია.
 - რეალური გარე მოთხოვნა: HTTP 200, USD→GEL, პროვაიდერის თარიღი 2026-10-29, მიღებული კურსი 2.5915. ეს შემოწმების მომენტის შედეგია და არა მუდმივი მნიშვნელობა.
 - ორივე მიგრაცია გამოყენებულია; სქემა მოდელს შეესაბამება.
-- GitHub-ზე ატვირთვა მოთხოვნილია; ლოკალური commit-ები მზადაა. რეპოზიტორიის შექმნის გვერდი GitHub-ში შესვლას ითხოვს, ამიტომ remote/push ჯერ არ შესრულებულა.
+- რეპოზიტორია: [NikaGamkhitashvili/OnlineStore](https://github.com/NikaGamkhitashvili/OnlineStore) · Private · ძირითადი branch: `main`.
 
-დეტალური მტკიცებულებები: `verification/LiveVerification.json`, `verification/DatabaseVerification.txt`, `verification/FrontendTestSummary.json`, `verification/FrontendBuild.txt`; სრული მიმდინარე TRX: `TestResults/OnlineStore.trx` (Git-ში არ შედის).
+გამოქვეყნებამდე განმეორებითი შემოწმება: `verification/PublishRestore.txt`, `PublishBuild.txt`, `PublishTests.txt`, `PublishJavaScriptTests.txt` და `PublishAudit.json`. წინა ეტაპების მტკიცებულებებიც `verification/`-ში ინახება. გენერირებული TRX ანგარიშები `TestResults/`-შია და Git-ში არ შედის.
 
 მოთხოვნების სტატუსები: [FINAL_REQUIREMENTS_CHECKLIST.md](FINAL_REQUIREMENTS_CHECKLIST.md). პრეზენტაციის ტექსტი: [PROJECT_PRESENTATION.md](PROJECT_PRESENTATION.md).
 
@@ -24,7 +74,7 @@ Windows; Visual Studio Community 2026, ASP.NET and web development workload; .NE
 
 ## პირველი გაშვება Visual Studio 2026-ში
 
-1. File → Open → Project/Solution → `C:\Projects\OnlineStore\OnlineStore.sln`.
+1. File → Open → Project/Solution → ჩამოტვირთული რეპოზიტორიის `OnlineStore.sln`.
 2. Solution Explorer → OnlineStore.API → Set as Startup Project.
 3. გაუშვი NuGet Restore. Package Manager Console-ში solution-ის საქაღალდიდან გამოიყენე ქვემოთ მოცემული EF ბრძანება, ან გამოიყენე ჩვეულებრივი PowerShell.
 4. აირჩიე **https** პროფილი. F5 ან Ctrl+F5.
@@ -34,7 +84,7 @@ Windows; Visual Studio Community 2026, ASP.NET and web development workload; .NE
 PowerShell:
 
 ```powershell
-Set-Location C:\Projects\OnlineStore
+# გადადით იმ საქაღალდეში, სადაც OnlineStore.sln ჩამოტვირთეთ.
 dotnet tool restore
 dotnet restore OnlineStore.sln
 dotnet build OnlineStore.sln --no-restore
@@ -205,7 +255,7 @@ PDF სტატუსების სრულ სიასა და წაშ
 | Headphones | 4 |
 | Other Accessories | 4 |
 
-არსებულ ბაზას დაემატა 26 პროდუქტი და 6 კატეგორია. ძველი 4 პროდუქტი შენარჩუნებულია; მომხმარებლის თანხმობით მხოლოდ მათი CategoryId შეიცვალა. ძველი 3 კატეგორიაც შენარჩუნებულია, ამიტომ ბაზაში ჯამში 9 კატეგორიაა. QA მაუსი Mice-ის ხუთეულში ითვლება. მომხმარებლები, შეკვეთები, OrderItem-ები, ძველი ფასები და მარაგები უცვლელია.
+არსებულ ბაზას დაემატა 26 პროდუქტი და 6 კატეგორია. ძველი 4 პროდუქტი შენარჩუნებულია; მომხმარებლის თანხმობით მხოლოდ მათი CategoryId შეიცვალა. ძველი 3 კატეგორიაც შენარჩუნებულია, ამიტომ ბაზაში ჯამში 9 კატეგორიაა. QA მაუსი Mice-ის ხუთეულში ითვლება. სრულიად ახალი ბაზის seed-ისას QA ჩანაწერი არ იქმნება: იქ 8 კატეგორიაა (2 საწყისი + 6 ახალი) და 30 პროდუქტი. მომხმარებლები, შეკვეთები, OrderItem-ები, ძველი ფასები და მარაგები უცვლელია.
 
 `CatalogSeeder` იყენებს არსებულ EF Core-სა და `StoreTransaction`-ს. კატეგორიებსა და პროდუქტებს ადარებს სტაბილური სახელებით, ზედმეტი გამოტოვებებისა და ასოების რეგისტრის გათვალისწინების გარეშე; ავსებს მხოლოდ დანაკლისს, მაქსიმუმ 30 საერთო პროდუქტამდე. უკვე 30 ან მეტი პროდუქტის არსებობისას არაფერს ცვლის. არსებულ ჩანაწერებს არ შლის და ადმინისტრატორის მიერ დამატებულ პროდუქტებს არ ანაცვლებს. სხვა, თვითნებურად შევსებულ ბაზაზე კატეგორიების ზუსტი განაწილება შესაძლოა განსხვავდებოდეს: მონაცემების შენარჩუნებას უპირატესობა ენიჭება.
 
@@ -264,6 +314,7 @@ PROJECT_PRESENTATION.md
 FINAL_REQUIREMENTS_CHECKLIST.md
 dotnet-tools.json
 OnlineStore.API/
+  wwwroot/ (index.html, css/, js/, images/products/, fonts/)
   Controllers/ (Products, Categories, Customers, Orders, ExchangeRates, StoreControllerBase)
   DTOs/ (Requests.cs, Responses.cs)
   Middleware/ExceptionMiddleware.cs
@@ -275,14 +326,14 @@ OnlineStore.Core/
   Exceptions/StoreException.cs
   OnlineStore.Core.csproj
 OnlineStore.Infrastructure/
-  Data/ (OnlineStoreDbContext, StoreTransaction, DevelopmentSeeder)
+  Data/ (OnlineStoreDbContext, StoreTransaction, DevelopmentSeeder, CatalogSeeder)
   Data/Migrations/ (InitialCreate, AddReportingObjects, Designer files, ModelSnapshot)
   Services/ (ProductService, CategoryService, CustomerService, OrderService, ExchangeRateService)
   OnlineStore.Infrastructure.csproj
 OnlineStore.Tests/
   ApiFactory.cs, ApiIntegrationTests.cs, TransactionTests.cs
-  ExternalApiTests.cs, HostingTests.cs, OnlineStore.Tests.csproj
-scripts/ (VerifyDatabase.sql, VerifyRunningApi.ps1)
+  ExternalApiTests.cs, HostingTests.cs, CatalogSeederTests.cs, OnlineStore.Tests.csproj
+scripts/ (SQL/API შემოწმება, cart/image JS ტესტები, ფოტოების ჩამოტვირთვა)
 verification/ (შემოწმების შენახული შედეგები)
 TestResults/ (გენერირებული TRX, Git-იდან გამორიცხულია)
 ```
@@ -307,7 +358,7 @@ dotnet test OnlineStore.sln --logger "trx;LogFileName=OnlineStore.trx" --results
 
 ## დარჩენილი ჩასაბარებელი მოქმედებები და საზღვრები
 
-- GitHub remote/push ავტორიზაციის მოლოდინშია: GitHub CLI დაყენებული არ არის, ბრაუზერში github.com/new გადადის login გვერდზე. პაროლები/ტოკენები პროექტში არ ინახება.
+- Private რეპოზიტორიის სანახავად ლექტორს მფლობელის მოწვევა დასჭირდება: GitHub → Settings → Collaborators → Add people. მომხმარებლის სახელი/ელფოსტა მფლობელმა უნდა მიუთითოს; წვდომა ავტომატურად არ გაიცემა.
 - პრეზენტაციის სცენარი მზადაა; სტუდენტის რეალური ზეპირი წარდგენა და ცოდნა ავტომატური ტესტით ვერ დასტურდება.
 - ეს არის ლოკალური სასწავლო მაღაზია. Frontend სტუდენტის დამატებითი მოთხოვნით შეიქმნა; ავტორიზაცია, გადახდები და საჯარო ჰოსტინგი არ დამატებულა.
 - ერთიანი SQL writer lock სწორია მცირე პროექტისთვის, მაგრამ ჩაწერებს ასერიალიზებს. დიდი დატვირთვის შემთხვევაში საჭიროა გაზომვის შემდეგ პროდუქტების დალაგებული row locks/უფრო წვრილი კონტროლი.
@@ -338,7 +389,7 @@ Frontend იყენებს HTML5-ს, CSS Grid/Flexbox-ს და Vanilla Ja
 
 ეს არის შვიდი ძირითადი გვერდი და დამატებითი შეკვეთის დეტალების გზა. საერთო `index.html` ემსახურება ცნობილ მისამართებს; `app.js` შესაბამის გვერდის მოდულს ტვირთავს. უცნობი `/api/...` და დაკარგული `.js` მისამართები 404-ს ინარჩუნებს. Browser Back/Forward და პირდაპირ URL-ზე შესვლა მუშაობს ჩვეულებრივი გვერდის ნავიგაციით.
 
-ბარათების სახელები, ფასები, კატეგორიები და მარაგი SQL Server-იდან API-ის გზით მოდის. პროდუქტის ფოტოს ველი backend-ში არ არსებობს: გამოყენებულია ჩვენი ლოკალური SVG საილუსტრაციო გამოსახულებები. ახალი სურათის URL/ველი ბაზას არ დამატებია. შრიფტი Noto Sans Georgian ლოკალურად ინახება თავისი SIL OFL ლიცენზიით.
+ბარათების სახელები, ფასები, კატეგორიები და მარაგი SQL Server-იდან API-ის გზით მოდის. პროდუქტის ფოტოს ველი backend-ში არ არსებობს: 10 მოდელზე გამოყენებულია ლოკალური WebP ფოტოები, 20-ზე — დროებითი SVG ილუსტრაციები; წყაროები და პირობები PHOTO_CREDITS.md-შია. ახალი სურათის URL/ველი ბაზას არ დამატებია. შრიფტი Noto Sans Georgian ლოკალურად ინახება თავისი SIL OFL ლიცენზიით.
 
 კალათა `localStorage`-ში ინახავს მხოლოდ `{ productId, quantity }` ჩანაწერებს. გვერდზე შესვლისას ფასები/მარაგი API-დან თავიდან იკითხება. არასწორი შენახული ჩანაწერები მოწმდება; ახალი პროდუქტი მაქსიმუმ ხელმისაწვდომ რაოდენობამდე ემატება. ამოწურული/წაშლილი პროდუქტი checkout-ს ბლოკავს. localStorage-ის შეზღუდვისას ჩანს გაფრთხილება, რომ კალათა გვერდის გადატვირთვას ვერ გაუძლებს.
 
@@ -356,7 +407,7 @@ Footer-ის USD/GEL ღილაკი იყენებს არსებ�
 dotnet restore OnlineStore.sln
 dotnet build OnlineStore.sln --no-restore
 dotnet test OnlineStore.sln --logger "trx;LogFileName=Frontend.trx" --results-directory TestResults
-node --test scripts/cart-tests.mjs
+node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs
 ```
 
 Node მხოლოდ JavaScript-ის ტესტებისთვის გამოიყენება; მაღაზიის გასაშვებად Node/npm საჭირო არ არის. თუ Node PATH-ში არაა, მიუთითე შენს გარემოში არსებული Node executable-ის სრული გზა.

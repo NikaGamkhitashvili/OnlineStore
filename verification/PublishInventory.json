@@ -1,0 +1,62 @@
+{
+  "requiredFilesTracked": true,
+  "projectCount": 4,
+  "projects": [
+    "OnlineStore.API\\OnlineStore.API.csproj",
+    "OnlineStore.Core\\OnlineStore.Core.csproj",
+    "OnlineStore.Infrastructure\\OnlineStore.Infrastructure.csproj",
+    "OnlineStore.Tests\\OnlineStore.Tests.csproj"
+  ],
+  "frontendHtml": true,
+  "frontendCss": true,
+  "frontendJavaScriptFiles": 11,
+  "efMigrationFiles": [
+    "OnlineStore.Infrastructure\\Data\\Migrations\\20261029200952_InitialCreate.cs",
+    "OnlineStore.Infrastructure\\Data\\Migrations\\20261029200952_InitialCreate.Designer.cs",
+    "OnlineStore.Infrastructure\\Data\\Migrations\\20261029203112_AddReportingObjects.cs",
+    "OnlineStore.Infrastructure\\Data\\Migrations\\20261029203112_AddReportingObjects.Designer.cs",
+    "OnlineStore.Infrastructure\\Data\\Migrations\\OnlineStoreDbContextModelSnapshot.cs"
+  ],
+  "licensedLocalPhotographs": 10,
+  "sharedDevelopmentConfigurationSafeAndTracked": true,
+  "ignoreRulesChecked": [
+    ".env",
+    ".env.production",
+    "secrets.json",
+    ".vscode/settings.json",
+    "OnlineStore.API/bin/Debug/a.dll",
+    "OnlineStore.API/obj/project.assets.json",
+    "TestResults/results.trx",
+    "tmp/local.txt",
+    "local.mdf",
+    "backup.bak",
+    "artifacts/store.zip"
+  ],
+  "requiredPathsNotIgnored": [
+    "OnlineStore.sln",
+    "OnlineStore.API/wwwroot/index.html",
+    "OnlineStore.API/wwwroot/css/styles.css",
+    "OnlineStore.API/wwwroot/js/app.js",
+    "OnlineStore.API/appsettings.json",
+    "OnlineStore.API/appsettings.Development.json",
+    "OnlineStore.Infrastructure/Data/Migrations/20261029200952_InitialCreate.cs"
+  ],
+  "databaseBackupsIncluded": false,
+  "documentationFiles": [
+    "AGENTS.md",
+    "DESIGN.md",
+    "FINAL_REQUIREMENTS_CHECKLIST.md",
+    "FRONTEND_IMPLEMENTATION.md",
+    "PHOTO_CREDITS.md",
+    "PRODUCT.md",
+    "PROJECT_PRESENTATION.md",
+    "README.md",
+    "RTK.md"
+  ],
+  "build": {
+    "errors": 0,
+    "warnings": 0
+  },
+  "dotnetTestsPassed": 57,
+  "javascriptTestsPassed": 11
+}

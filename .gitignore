@@ -1,6 +1,7 @@
 **/bin/
 **/obj/
 .vs/
+.vscode/
 *.user
 *.suo
 tmp/
@@ -8,3 +9,31 @@ tmp/
 *.log
 TestResults/
 .codex/
+
+# Local credentials and environment overrides (safe shared appsettings stay tracked).
+.env
+.env.*
+secrets.json
+appsettings.*.local.json
+*.pem
+*.key
+*.p12
+
+# Local databases and backups; EF migration source files remain tracked.
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.bacpac
+*.db
+*.db-shm
+*.db-wal
+
+# Generated output and caches.
+artifacts/
+**/publish/
+**/__pycache__/
+*.pyc
+*.tmp
+*.temp
+*.cache
