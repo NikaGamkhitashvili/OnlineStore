@@ -78,7 +78,7 @@ Windows; Visual Studio Community 2026, ASP.NET and web development workload; .NE
 2. Solution Explorer → OnlineStore.API → Set as Startup Project.
 3. გაუშვი NuGet Restore. Package Manager Console-ში solution-ის საქაღალდიდან გამოიყენე ქვემოთ მოცემული EF ბრძანება, ან გამოიყენე ჩვეულებრივი PowerShell.
 4. აირჩიე **https** პროფილი. F5 ან Ctrl+F5.
-5. გაიხსნება https://localhost:7156/ — სრული მაღაზია. Swagger ხელმისაწვდომია https://localhost:7156/swagger-ზე.
+5. გაიხსნება https://localhost:7156/ — სრული მაღაზია. Swagger ხელმისაწვდომია მისამართზე: [https://localhost:7156/swagger](https://localhost:7156/swagger).
 6. თუ API უკვე გაშვებულია და პორტი დაკავებულია, ჯერ მიმდინარე პროცესში Ctrl+C გამოიყენე (Visual Studio-ში Shift+F5).
 
 PowerShell:
