@@ -94,7 +94,7 @@ Admin-ში პროდუქტის, კატეგორიისა დ�
 - **ბრაუზერში რეალური DELETE არ შესრულდა, რადგან სტუდენტმა QA ჩანაწერების დატოვება მოითხოვა.** შემოწმდა confirmation-ის გაუქმება. ავტომატური SQL integration ტესტები DELETE-ს სრულად ასრულებს მხოლოდ იზოლირებულ ბაზებში.
 - QA Category #3, Product #4, Customer #3 და Cancelled Order #2 დარჩა. საწყისი ჩანაწერები არ შეცვლილა; ბაზის reset/drop არ შესრულებულა.
 
-სურათები და ანგარიშები ინახება `verification/`-ში. გაშვება: `dotnet run --project OnlineStore.API --launch-profile https`; მაღაზია `/`, Swagger `/swagger`. JavaScript-ის ცვლილებას frontend build tool არ სჭირდება; refresh საკმარისია. GitHub Private რეპოზიტორია შექმნილია: https://github.com/NikaGamkhitashvili/OnlineStore. საბოლოო ატვირთვის სტატუსი მოთხოვნების checklist-შია.
+სურათები და ანგარიშები ინახება `verification/`-ში. გაშვება: `dotnet run --project OnlineStore.API --launch-profile https`; მაღაზია `/`, Swagger `/swagger`. JavaScript-ის ცვლილებას frontend build tool არ სჭირდება; refresh საკმარისია. GitHub Private რეპოზიტორია შექმნილია: https://github.com/NikaGamkhitashvili/OnlineStore. Frontend და Backend main branch-ზე ატვირთულია; დამოუკიდებელი clone და ქართული README-ის ჩვენება შემოწმებულია.
 
 ## კატალოგის გაფართოება
 

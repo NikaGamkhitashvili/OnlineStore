@@ -1,0 +1,21 @@
+{
+  "repository": "NikaGamkhitashvili/OnlineStore",
+  "url": "https://github.com/NikaGamkhitashvili/OnlineStore",
+  "visibility": "Private (verified in GitHub UI)",
+  "branch": "main",
+  "verifiedRemoteCommit": "603903fb0bfac6505e30aeab45b5d300481eb23b",
+  "independentlyClonedFromGitHub": true,
+  "remoteFileCount": 168,
+  "remoteMatchesLocalTrackedFiles": true,
+  "requiredComponentsPresent": true,
+  "forbiddenRemotePaths": [],
+  "readmeRelativeLinksResolve": true,
+  "historyPreserved": true,
+  "remoteCommitCount": 10,
+  "verificationPhase": "First complete source push, before committing final publication verification documentation.",
+  "githubReadmeRendered": true,
+  "githubReadmeScreenshotLoaded": true,
+  "githubCliInstalled": false,
+  "pushAuthentication": "Existing Git Credential Manager; own authenticated GitHub account",
+  "workingApplicationRewritten": false
+}
