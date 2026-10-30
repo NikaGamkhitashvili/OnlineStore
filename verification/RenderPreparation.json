@@ -1,5 +1,5 @@
 {
-  "deployment": "BLOCKED_ACCOUNT_VERIFICATION",
+  "deployment": "BLOCKED_AZURE_STUDENT_VERIFICATION",
   "dotnetTests": {
     "total": "77",
     "executed": "77",
@@ -36,8 +36,20 @@
     "ProductImports": 38
   },
   "notes": [
-    "Cloud accounts still require user sign-in/verification.",
-    "No paid resources created.",
-    "Existing local database not reset or dropped."
-  ]
+    "Azure academic verification must be completed by the user.",
+    "Database connection and administrator password are not configured in Render yet.",
+    "No paid resources or public service created.",
+    "Local database exported without changing existing records."
+  ],
+  "renderAccount": "SIGNED IN",
+  "gitHubConnection": "CONNECTED",
+  "renderForm": {
+    "name": "onlinestore-nikagamkhitashvili",
+    "region": "frankfurt",
+    "plan": "free",
+    "autoDeploy": "off",
+    "health": "/health",
+    "created": false
+  },
+  "azureAccount": "SIGNED IN; no active subscription; academic email verification pending"
 }
