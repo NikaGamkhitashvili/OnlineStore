@@ -1,0 +1,19 @@
+✔ cart persists only IDs and quantities, merging repeated additions (2.9036ms)
+✔ add and quantity changes cannot exceed stock (0.4463ms)
+✔ zero-stock products cannot be added (0.1689ms)
+✔ quantity change, removal and clearing persist correctly (0.2135ms)
+✔ corrupt or manipulated browser storage is sanitized (0.237ms)
+✔ blocked browser storage degrades to an in-memory cart (0.1663ms)
+✔ deleted products or reduced stock block checkout (0.1545ms)
+✔ estimated totals use current prices and integer cents (0.1553ms)
+✔ cart rejects more than 100 unique lines (3.5264ms)
+✔ product illustrations follow device type instead of broad brand matching (4.0438ms)
+✔ reviewed photographs match exact models and have local WebP files with credits (8.0389ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 217.6673

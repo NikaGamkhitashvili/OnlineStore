@@ -1,0 +1,35 @@
+{
+  "totalCards": 30,
+  "categoryFilters": [
+    {
+      "category": "Laptops",
+      "count": 7
+    },
+    {
+      "category": "Computers and Monitors",
+      "count": 5
+    },
+    {
+      "category": "Keyboards",
+      "count": 5
+    },
+    {
+      "category": "Mice",
+      "count": 5
+    },
+    {
+      "category": "Headphones",
+      "count": 4
+    },
+    {
+      "category": "Other Accessories",
+      "count": 4
+    }
+  ],
+  "sonySearchResults": 2,
+  "ascendingFirst": "Logitech M185",
+  "descendingFirst": "ASUS TUF Gaming A15",
+  "all30ProductsAddedToCart": true,
+  "testCartRestoredEmpty": true,
+  "detailProduct": "Samsung T7 Portable SSD 1TB"
+}

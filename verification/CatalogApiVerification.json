@@ -1,0 +1,18 @@
+{
+  "totalProducts": 30,
+  "categoryCounts": {
+    "კომპიუტერები": 0,
+    "აქსესუარები": 0,
+    "UI QA აქსესუარები": 0,
+    "Laptops": 7,
+    "Computers and Monitors": 5,
+    "Keyboards": 5,
+    "Mice": 5,
+    "Headphones": 4,
+    "Other Accessories": 4
+  },
+  "detailsVerified": 30,
+  "searchesVerified": 30,
+  "allSvgAssetsHttp200": true,
+  "swaggerStatus": 200
+}

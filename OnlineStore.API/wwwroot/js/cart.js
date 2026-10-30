@@ -1,5 +1,6 @@
 import { api } from './api.js';
 import { cart, reconcileCart, cartIsValid, cartTotal } from './cart-store.js';
+import { photoFor } from './product-images.js';
 import { el, icon, money, imageFor, empty, heading, quantityControl, toast } from './ui.js';
 
 export function orderSummary(lines, action) {
@@ -30,7 +31,7 @@ export async function renderCart(main) {
     const warning = unavailable ? el('p', { class: 'inline-error', role: 'alert' }, product ? `მარაგში დარჩენილია ${product.stockQuantity} ცალი. შეამცირე რაოდენობა ან ამოშალე ნივთი.` : 'შეკვეთამდე ამოშალე ეს ნივთი.') : null;
     const remove = el('button', { class: 'text-button remove-button', onClick: () => { cart.remove(productId); renderCart(main).catch(error => toast(error.message, true)); }, 'aria-label': `${product?.name || 'პროდუქტი'} კალათიდან ამოშლა` }, icon('trash'), 'ამოშლა');
     const subtotal = el('strong', { class: 'cart-subtotal' }, product ? money(product.price * quantity) : '—');
-    list.append(el('article', { class: 'cart-item' }, el('img', { src: product ? imageFor(product) : '/images/product.svg', alt: '', width: 140, height: 110 }),
+    list.append(el('article', { class: 'cart-item' }, el('img', { src: product ? imageFor(product) : '/images/product.svg', class: product && photoFor(product) ? 'real-photo' : null, alt: '', width: 140, height: 110 }),
       el('div', { class: 'cart-item-copy' }, el('h2', {}, product ? el('a', { href: `/products/${productId}` }, product.name) : `პროდუქტი #${productId} აღარ არის ხელმისაწვდომი`),
         product && el('p', { class: 'muted' }, money(product.price), ' / ცალი'),
         warning, remove),

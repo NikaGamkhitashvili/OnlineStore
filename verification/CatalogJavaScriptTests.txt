@@ -1,0 +1,18 @@
+✔ cart persists only IDs and quantities, merging repeated additions (3.0595ms)
+✔ add and quantity changes cannot exceed stock (0.4662ms)
+✔ zero-stock products cannot be added (0.1835ms)
+✔ quantity change, removal and clearing persist correctly (0.2761ms)
+✔ corrupt or manipulated browser storage is sanitized (0.2461ms)
+✔ blocked browser storage degrades to an in-memory cart (0.1781ms)
+✔ deleted products or reduced stock block checkout (0.1588ms)
+✔ estimated totals use current prices and integer cents (0.1511ms)
+✔ cart rejects more than 100 unique lines (3.3618ms)
+✔ product illustrations follow device type instead of broad brand matching (5.9808ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 182.0879

@@ -128,8 +128,18 @@ public class HostingTests(ApiFactory factory) : IClassFixture<ApiFactory>
     [Fact]
     public async Task Frontend_assets_are_local_and_unknown_API_routes_remain_404()
     {
-        foreach (var asset in new[] { "/css/styles.css", "/js/app.js", "/js/api.js", "/js/admin.js", "/images/logo.svg", "/images/laptop.svg", "/images/mouse.svg", "/images/keyboard.svg", "/images/product.svg", "/fonts/NotoSansGeorgian.ttf" })
+        foreach (var asset in new[] { "/css/styles.css", "/js/app.js", "/js/api.js", "/js/admin.js", "/js/product-images.js", "/images/logo.svg", "/images/laptop.svg", "/images/mouse.svg", "/images/keyboard.svg", "/images/product.svg", "/images/monitor.svg", "/images/desktop.svg", "/images/headphones.svg", "/images/ssd.svg", "/images/webcam.svg", "/images/hub.svg", "/images/mousepad.svg", "/fonts/NotoSansGeorgian.ttf" })
             Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync(asset)).StatusCode);
+        Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/js/product-photos.js")).StatusCode);
+        Assert.Equal(HttpStatusCode.OK, (await factory.Client.GetAsync("/images/products/credits.html")).StatusCode);
+        using var photos = JsonDocument.Parse(await factory.Client.GetStringAsync("/images/products/sources.json"));
+        Assert.Equal(7, photos.RootElement.EnumerateObject().Count());
+        foreach (var photo in photos.RootElement.EnumerateObject())
+        {
+            var response = await factory.Client.GetAsync(photo.Value.GetProperty("src").GetString());
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+            Assert.Equal("image/webp", response.Content.Headers.ContentType?.MediaType);
+        }
         Assert.Equal(HttpStatusCode.NotFound, (await factory.Client.GetAsync("/api/does-not-exist")).StatusCode);
         Assert.Equal(HttpStatusCode.NotFound, (await factory.Client.GetAsync("/missing.js")).StatusCode);
     }

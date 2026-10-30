@@ -1,0 +1,5 @@
+Test run for C:\Projects\OnlineStore\OnlineStore.Tests\bin\Debug\net10.0\OnlineStore.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: C:\Projects\OnlineStore\TestResults\Catalog.trx
+
+Passed!  - Failed:     0, Passed:    57, Skipped:     0, Total:    57, Duration: 3 s - OnlineStore.Tests.dll (net10.0)

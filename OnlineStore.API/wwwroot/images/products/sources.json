@@ -1,0 +1,93 @@
+{
+  "logitech m185": {
+    "model": "Logitech M185",
+    "src": "/images/products/logitech-m185.webp",
+    "author": "Hayden Schiff",
+    "source": "https://commons.wikimedia.org/wiki/File:Logitech_M185_mouse_HS05.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Logitech_M185_mouse_HS05.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "c2ba60588dcf1d42931bd5386f7f420e835b8edc09b02f0ee51dd6b68f9da490",
+    "originalSha256": "d6f15f3f178e822846c9d3cb34141c9fce1091fca652970fd16a321d4d403429"
+  },
+  "logitech k120": {
+    "model": "Logitech K120",
+    "src": "/images/products/logitech-k120.webp",
+    "author": "TaurusEmerald",
+    "source": "https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/Logitech_K120_Keyboard.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "334224534635197f926865066ca392d8ccb6b23828a1877766b43d8ba6f5ebcb",
+    "originalSha256": "0ae3c7966794407dad11ad80a740eb2ed813fb6e160f35024adc86a240fe9fe0"
+  },
+  "asus vivobook 15": {
+    "model": "ASUS Vivobook 15",
+    "src": "/images/products/asus-vivobook-15.webp",
+    "author": "LeopardWin",
+    "source": "https://commons.wikimedia.org/wiki/File:Asus_Vivobook_15.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Asus_Vivobook_15.jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "6b9106516001faac111b0d182e62cc72291e21a501bc69a5565191f16679be87",
+    "originalSha256": "1c99c8d6ac39d9a467851546998eb9ddee6a3840346d8ec4ea3bd1b346fffde8"
+  },
+  "lenovo thinkcentre neo 50t": {
+    "model": "Lenovo ThinkCentre neo 50t",
+    "src": "/images/products/lenovo-thinkcentre-neo-50t.webp",
+    "author": "Rakoon",
+    "source": "https://commons.wikimedia.org/wiki/File:Lenovo_ThinkCentre_neo_50t_obverse.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Lenovo_ThinkCentre_neo_50t_obverse.jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "be838925c70814151549330fb14e18e28823370773c49700f309d875bf94697f",
+    "originalSha256": "f1c62228e840433f0530fd80a36b77e50744080bd47dc926667b84f73a292c8b"
+  },
+  "logitech mx master 3s": {
+    "model": "Logitech MX Master 3S",
+    "src": "/images/products/logitech-mx-master-3s.webp",
+    "author": "Hayden Schiff",
+    "source": "https://commons.wikimedia.org/wiki/File:Logitech_MX_Master_3S_HS01.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/90/Logitech_MX_Master_3S_HS01.jpg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "e1b076c80f9b1ca6907624b033a37929efcd3a9b2d01204c73912a4986c73800",
+    "originalSha256": "1d4eaca262219b132c0d342a348faf5cf89c11eef5a0cf438b94d4bab2195cca"
+  },
+  "logitech g305 lightspeed": {
+    "model": "Logitech G305 LIGHTSPEED",
+    "src": "/images/products/logitech-g305.webp",
+    "author": "Julien Sinan",
+    "source": "https://commons.wikimedia.org/wiki/File:Une_souris_Logitech_G305..jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Une_souris_Logitech_G305..jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "61edd0f498a2f2235b411b86bc2e13ce1a6839f409825438a03b9f096c4664cd",
+    "originalSha256": "d59e20ac3c9cc445dc4e122c14a3129e025741688ee376b8f0ba88258637f15b"
+  },
+  "logitech c920 hd pro webcam": {
+    "model": "Logitech C920 HD Pro Webcam",
+    "src": "/images/products/logitech-c920.webp",
+    "author": "Pmwiki1",
+    "source": "https://commons.wikimedia.org/wiki/File:Webcam_01.jpg",
+    "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Webcam_01.jpg",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "changes": "Resized, centered on a white 960×720 canvas and converted to WebP; metadata removed.",
+    "checkedOn": "2026-10-30",
+    "sha256": "9a2190f215b58b931e1bf3aae18e32c180aada7dac36a01790d10a37f21fad60",
+    "originalSha256": "711dae5bec30b8eeafb61d9f23013659350bf0bf2b34d72950ba3464c8e203ab"
+  }
+}

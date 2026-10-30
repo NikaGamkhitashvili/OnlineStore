@@ -1,0 +1,192 @@
+{
+  "total": 30,
+  "photographs": 7,
+  "placeholders": 23,
+  "productDataUnchanged": true,
+  "allImageFilesLocal": true,
+  "images": [
+    {
+      "id": 1,
+      "model": "Lenovo IdeaPad 15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 2,
+      "model": "Logitech M185",
+      "src": "/images/products/logitech-m185.webp",
+      "photograph": true
+    },
+    {
+      "id": 3,
+      "model": "Logitech K120",
+      "src": "/images/products/logitech-k120.webp",
+      "photograph": true
+    },
+    {
+      "id": 4,
+      "model": "UI QA Mouse",
+      "src": "/images/mouse.svg",
+      "photograph": false
+    },
+    {
+      "id": 5,
+      "model": "ASUS Vivobook 15",
+      "src": "/images/products/asus-vivobook-15.webp",
+      "photograph": true
+    },
+    {
+      "id": 6,
+      "model": "HP Pavilion 15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 7,
+      "model": "Dell Inspiron 15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 8,
+      "model": "Lenovo LOQ 15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 9,
+      "model": "ASUS TUF Gaming A15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 10,
+      "model": "HP Victus 15",
+      "src": "/images/laptop.svg",
+      "photograph": false
+    },
+    {
+      "id": 11,
+      "model": "Dell OptiPlex 7010 SFF",
+      "src": "/images/desktop.svg",
+      "photograph": false
+    },
+    {
+      "id": 12,
+      "model": "HP Pro Tower 400 G9",
+      "src": "/images/desktop.svg",
+      "photograph": false
+    },
+    {
+      "id": 13,
+      "model": "Lenovo ThinkCentre neo 50t",
+      "src": "/images/products/lenovo-thinkcentre-neo-50t.webp",
+      "photograph": true
+    },
+    {
+      "id": 14,
+      "model": "Samsung Odyssey G5 27",
+      "src": "/images/monitor.svg",
+      "photograph": false
+    },
+    {
+      "id": 15,
+      "model": "Dell P2422H Monitor",
+      "src": "/images/monitor.svg",
+      "photograph": false
+    },
+    {
+      "id": 16,
+      "model": "Logitech MX Keys S",
+      "src": "/images/keyboard.svg",
+      "photograph": false
+    },
+    {
+      "id": 17,
+      "model": "Logitech G413 TKL SE",
+      "src": "/images/keyboard.svg",
+      "photograph": false
+    },
+    {
+      "id": 18,
+      "model": "HyperX Alloy Origins Core",
+      "src": "/images/keyboard.svg",
+      "photograph": false
+    },
+    {
+      "id": 19,
+      "model": "Razer Ornata V3",
+      "src": "/images/keyboard.svg",
+      "photograph": false
+    },
+    {
+      "id": 20,
+      "model": "Logitech MX Master 3S",
+      "src": "/images/products/logitech-mx-master-3s.webp",
+      "photograph": true
+    },
+    {
+      "id": 21,
+      "model": "Logitech G305 LIGHTSPEED",
+      "src": "/images/products/logitech-g305.webp",
+      "photograph": true
+    },
+    {
+      "id": 22,
+      "model": "Razer DeathAdder Essential",
+      "src": "/images/mouse.svg",
+      "photograph": false
+    },
+    {
+      "id": 23,
+      "model": "Sony WH-CH520",
+      "src": "/images/headphones.svg",
+      "photograph": false
+    },
+    {
+      "id": 24,
+      "model": "Sony WH-1000XM4",
+      "src": "/images/headphones.svg",
+      "photograph": false
+    },
+    {
+      "id": 25,
+      "model": "HyperX Cloud III",
+      "src": "/images/headphones.svg",
+      "photograph": false
+    },
+    {
+      "id": 26,
+      "model": "Razer BlackShark V2 X",
+      "src": "/images/headphones.svg",
+      "photograph": false
+    },
+    {
+      "id": 27,
+      "model": "Samsung T7 Portable SSD 1TB",
+      "src": "/images/ssd.svg",
+      "photograph": false
+    },
+    {
+      "id": 28,
+      "model": "Logitech C920 HD Pro Webcam",
+      "src": "/images/products/logitech-c920.webp",
+      "photograph": true
+    },
+    {
+      "id": 29,
+      "model": "Anker 332 USB-C Hub",
+      "src": "/images/hub.svg",
+      "photograph": false
+    },
+    {
+      "id": 30,
+      "model": "Razer Gigantus V2 Large",
+      "src": "/images/mousepad.svg",
+      "photograph": false
+    }
+  ],
+  "all30ImageUrlsHttp200": true,
+  "allFiveDatabaseTablesUnchanged": true,
+  "databaseBaseline": "CatalogAfterRestart.json"
+}

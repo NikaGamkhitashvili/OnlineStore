@@ -1,0 +1,18 @@
+{
+  "verifiedAtUtc": "2026-10-29T21:52:23.074Z",
+  "totalProducts": 30,
+  "totalCategories": 9,
+  "addedProducts": 26,
+  "categoryCounts": {
+    "Laptops": 7,
+    "Computers and Monitors": 5,
+    "Keyboards": 5,
+    "Mice": 5,
+    "Headphones": 4,
+    "Other Accessories": 4
+  },
+  "originalRecordsPreserved": true,
+  "ordersCustomersAndItemsUnchanged": true,
+  "localImagesForAllProducts": true,
+  "restartUnchanged": true
+}

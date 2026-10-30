@@ -552,6 +552,9 @@ button {
   object-fit:contain;
   padding:5px;
 }
+img.real-photo {
+  background:#fff;
+}
 .sold-out {
   position:absolute;
   top:12px;

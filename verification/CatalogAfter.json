@@ -1,0 +1,353 @@
+{
+  "Categories": [
+    {
+      "Id": 1,
+      "Name": "კომპიუტერები",
+      "Description": "ლეპტოპები და კომპიუტერის მოწყობილობები"
+    },
+    {
+      "Id": 2,
+      "Name": "აქსესუარები",
+      "Description": "ყოველდღიური აქსესუარები"
+    },
+    {
+      "Id": 3,
+      "Name": "UI QA აქსესუარები",
+      "Description": "Frontend verification records"
+    },
+    {
+      "Id": 4,
+      "Name": "Laptops",
+      "Description": "ლეპტოპები სწავლისთვის, სამუშაოდ და თამაშებისთვის"
+    },
+    {
+      "Id": 5,
+      "Name": "Computers and Monitors",
+      "Description": "დესკტოპ კომპიუტერები და მონიტორები სამუშაო სივრცისთვის"
+    },
+    {
+      "Id": 6,
+      "Name": "Keyboards",
+      "Description": "საოფისე და გეიმინგ კლავიატურები"
+    },
+    {
+      "Id": 7,
+      "Name": "Mice",
+      "Description": "უსადენო, საოფისე და გეიმინგ მაუსები"
+    },
+    {
+      "Id": 8,
+      "Name": "Headphones",
+      "Description": "უსადენო ყურსასმენები და გეიმინგ ჰედსეტები"
+    },
+    {
+      "Id": 9,
+      "Name": "Other Accessories",
+      "Description": "მეხსიერება, ვებკამერები, ჰაბები და სამუშაო მაგიდის აქსესუარები"
+    }
+  ],
+  "Products": [
+    {
+      "Id": 1,
+      "Name": "Lenovo IdeaPad 15",
+      "Description": "16GB RAM, 512GB SSD",
+      "Price": 1899.99,
+      "StockQuantity": 8,
+      "CategoryId": 4
+    },
+    {
+      "Id": 2,
+      "Name": "Logitech M185",
+      "Description": "უსადენო მაუსი",
+      "Price": 39.9,
+      "StockQuantity": 28,
+      "CategoryId": 7
+    },
+    {
+      "Id": 3,
+      "Name": "Logitech K120",
+      "Description": "USB კლავიატურა",
+      "Price": 49.5,
+      "StockQuantity": 19,
+      "CategoryId": 6
+    },
+    {
+      "Id": 4,
+      "Name": "UI QA Mouse",
+      "Description": "<img src=x onerror=alert(1)> უსაფრთხო ტექსტი",
+      "Price": 99.0,
+      "StockQuantity": 5,
+      "CategoryId": 7
+    },
+    {
+      "Id": 5,
+      "Name": "ASUS Vivobook 15",
+      "Description": "15.6-დუიმიანი ლეპტოპი სწავლისა და ოფისისთვის. დემო კომპლექტაცია: 16GB RAM, 512GB SSD.",
+      "Price": 1799.0,
+      "StockQuantity": 12,
+      "CategoryId": 4
+    },
+    {
+      "Id": 6,
+      "Name": "HP Pavilion 15",
+      "Description": "საშინაო და საოფისე ლეპტოპი Full HD ეკრანით. დემო კომპლექტაცია: 16GB RAM, 512GB SSD.",
+      "Price": 2199.0,
+      "StockQuantity": 7,
+      "CategoryId": 4
+    },
+    {
+      "Id": 7,
+      "Name": "Dell Inspiron 15",
+      "Description": "15.6-დუიმიანი ლეპტოპი დოკუმენტებისთვის, სწავლასა და ვიდეოზარებისთვის. დემო: 16GB RAM, 512GB SSD.",
+      "Price": 2099.0,
+      "StockQuantity": 9,
+      "CategoryId": 4
+    },
+    {
+      "Id": 8,
+      "Name": "Lenovo LOQ 15",
+      "Description": "გეიმინგ ლეპტოპი გაგრილების აქტიური სისტემით. დემო კომპლექტაცია: 16GB RAM, 512GB SSD, RTX 4050.",
+      "Price": 2999.0,
+      "StockQuantity": 6,
+      "CategoryId": 4
+    },
+    {
+      "Id": 9,
+      "Name": "ASUS TUF Gaming A15",
+      "Description": "15.6-დუიმიანი გეიმინგ ლეპტოპი. დემო კომპლექტაცია: Ryzen 7, 16GB RAM, 1TB SSD, RTX 4060.",
+      "Price": 3699.0,
+      "StockQuantity": 4,
+      "CategoryId": 4
+    },
+    {
+      "Id": 10,
+      "Name": "HP Victus 15",
+      "Description": "ლეპტოპი თამაშებისთვის და ყოველდღიური სამუშაოსთვის. დემო კომპლექტაცია: 16GB RAM, 512GB SSD, RTX 3050.",
+      "Price": 2599.0,
+      "StockQuantity": 5,
+      "CategoryId": 4
+    },
+    {
+      "Id": 11,
+      "Name": "Dell OptiPlex 7010 SFF",
+      "Description": "კომპაქტური საოფისე დესკტოპი. დემო კომპლექტაცია: 16GB RAM და 512GB SSD. მონიტორი არ მოჰყვება.",
+      "Price": 1899.0,
+      "StockQuantity": 6,
+      "CategoryId": 5
+    },
+    {
+      "Id": 12,
+      "Name": "HP Pro Tower 400 G9",
+      "Description": "საოფისე Tower კომპიუტერი. დემო კომპლექტაცია: 16GB RAM და 512GB SSD. მონიტორი იყიდება ცალკე.",
+      "Price": 1999.0,
+      "StockQuantity": 5,
+      "CategoryId": 5
+    },
+    {
+      "Id": 13,
+      "Name": "Lenovo ThinkCentre neo 50t",
+      "Description": "დესკტოპ კომპიუტერი სასწავლო და ბიზნეს ამოცანებისთვის. დემო: 16GB RAM, 512GB SSD; მონიტორის გარეშე.",
+      "Price": 1699.0,
+      "StockQuantity": 7,
+      "CategoryId": 5
+    },
+    {
+      "Id": 14,
+      "Name": "Samsung Odyssey G5 27",
+      "Description": "27-დუიმიანი გეიმინგ მონიტორი. დემო ვარიანტი: QHD ეკრანი, HDMI და DisplayPort კავშირი.",
+      "Price": 799.0,
+      "StockQuantity": 11,
+      "CategoryId": 5
+    },
+    {
+      "Id": 15,
+      "Name": "Dell P2422H Monitor",
+      "Description": "23.8-დუიმიანი Full HD IPS მონიტორი რეგულირებადი სადგამით, ოფისისა და სწავლისთვის.",
+      "Price": 599.0,
+      "StockQuantity": 10,
+      "CategoryId": 5
+    },
+    {
+      "Id": 16,
+      "Name": "Logitech MX Keys S",
+      "Description": "უსადენო კლავიატურა განათებული ღილაკებითა და რამდენიმე მოწყობილობას შორის გადართვით.",
+      "Price": 399.0,
+      "StockQuantity": 9,
+      "CategoryId": 6
+    },
+    {
+      "Id": 17,
+      "Name": "Logitech G413 TKL SE",
+      "Description": "კომპაქტური მექანიკური USB კლავიატურა TKL განლაგებითა და თეთრი განათებით.",
+      "Price": 249.0,
+      "StockQuantity": 13,
+      "CategoryId": 6
+    },
+    {
+      "Id": 18,
+      "Name": "HyperX Alloy Origins Core",
+      "Description": "კომპაქტური მექანიკური გეიმინგ კლავიატურა RGB განათებით და TKL განლაგებით.",
+      "Price": 299.0,
+      "StockQuantity": 8,
+      "CategoryId": 6
+    },
+    {
+      "Id": 19,
+      "Name": "Razer Ornata V3",
+      "Description": "დაბალი პროფილის სადენიანი გეიმინგ კლავიატურა, განათებითა და ხელის საყრდენით.",
+      "Price": 289.0,
+      "StockQuantity": 10,
+      "CategoryId": 6
+    },
+    {
+      "Id": 20,
+      "Name": "Logitech MX Master 3S",
+      "Description": "ერგონომიული უსადენო მაუსი მშვიდი ღილაკებითა და სწრაფი scroll ბორბლით.",
+      "Price": 299.0,
+      "StockQuantity": 12,
+      "CategoryId": 7
+    },
+    {
+      "Id": 21,
+      "Name": "Logitech G305 LIGHTSPEED",
+      "Description": "უსადენო გეიმინგ მაუსი USB მიმღებით; მუშაობს AA ელემენტზე.",
+      "Price": 149.0,
+      "StockQuantity": 18,
+      "CategoryId": 7
+    },
+    {
+      "Id": 22,
+      "Name": "Razer DeathAdder Essential",
+      "Description": "ერგონომიული სადენიანი USB გეიმინგ მაუსი მარჯვენა ხელისთვის.",
+      "Price": 79.9,
+      "StockQuantity": 22,
+      "CategoryId": 7
+    },
+    {
+      "Id": 23,
+      "Name": "Sony WH-CH520",
+      "Description": "მსუბუქი უსადენო Bluetooth ყურსასმენები მუსიკისა და ყოველდღიური ზარებისთვის.",
+      "Price": 179.0,
+      "StockQuantity": 16,
+      "CategoryId": 8
+    },
+    {
+      "Id": 24,
+      "Name": "Sony WH-1000XM4",
+      "Description": "უსადენო ყურსასმენები ხმაურის აქტიური შემცირებით და დასაკეცი კონსტრუქციით.",
+      "Price": 799.0,
+      "StockQuantity": 6,
+      "CategoryId": 8
+    },
+    {
+      "Id": 25,
+      "Name": "HyperX Cloud III",
+      "Description": "სადენიანი გეიმინგ ჰედსეტი მიკროფონით, კომპიუტერსა და თავსებად მოწყობილობებზე გამოსაყენებლად.",
+      "Price": 299.0,
+      "StockQuantity": 11,
+      "CategoryId": 8
+    },
+    {
+      "Id": 26,
+      "Name": "Razer BlackShark V2 X",
+      "Description": "მსუბუქი გეიმინგ ჰედსეტი მიკროფონით და 3.5მმ სადენიანი კავშირით.",
+      "Price": 169.9,
+      "StockQuantity": 15,
+      "CategoryId": 8
+    },
+    {
+      "Id": 27,
+      "Name": "Samsung T7 Portable SSD 1TB",
+      "Description": "1TB მოცულობის კომპაქტური გარე SSD USB-C კავშირით, ფაილების გადასატანად და სარეზერვო ასლებისთვის.",
+      "Price": 299.0,
+      "StockQuantity": 17,
+      "CategoryId": 9
+    },
+    {
+      "Id": 28,
+      "Name": "Logitech C920 HD Pro Webcam",
+      "Description": "Full HD USB ვებკამერა ვიდეოზარებისთვის, ონლაინ სწავლებისა და შეხვედრებისთვის.",
+      "Price": 249.0,
+      "StockQuantity": 12,
+      "CategoryId": 9
+    },
+    {
+      "Id": 29,
+      "Name": "Anker 332 USB-C Hub",
+      "Description": "USB-C ჰაბი HDMI, USB-A და USB-C პორტებით, ლეპტოპის დამატებით მოწყობილობებთან დასაკავშირებლად.",
+      "Price": 129.9,
+      "StockQuantity": 20,
+      "CategoryId": 9
+    },
+    {
+      "Id": 30,
+      "Name": "Razer Gigantus V2 Large",
+      "Description": "დიდი ზომის ქსოვილის მაუსპადი რბილი ზედაპირითა და მოცურების საწინააღმდეგო ძირით.",
+      "Price": 69.9,
+      "StockQuantity": 25,
+      "CategoryId": 9
+    }
+  ],
+  "Customers": [
+    {
+      "Id": 1,
+      "FirstName": "გიორგი",
+      "LastName": "მაისურაძე",
+      "Email": "giorgi.demo@example.com",
+      "Phone": null
+    },
+    {
+      "Id": 2,
+      "FirstName": "ნინო",
+      "LastName": "ბერიძე",
+      "Email": "nino.demo@example.com",
+      "Phone": "+995555010101"
+    },
+    {
+      "Id": 3,
+      "FirstName": "UIQA",
+      "LastName": "შემოწმებული",
+      "Email": "uiqa.20261030@example.com",
+      "Phone": "+995555030303"
+    }
+  ],
+  "Orders": [
+    {
+      "Id": 1,
+      "CustomerId": 2,
+      "OrderDate": "2026-10-29T20:36:59.3577629",
+      "Status": "Pending",
+      "TotalAmount": 129.3
+    },
+    {
+      "Id": 2,
+      "CustomerId": 3,
+      "OrderDate": "2026-10-29T21:23:31.2456868",
+      "Status": "Cancelled",
+      "TotalAmount": 24.7
+    }
+  ],
+  "OrderItems": [
+    {
+      "Id": 1,
+      "OrderId": 1,
+      "ProductId": 2,
+      "Quantity": 2,
+      "UnitPrice": 39.9
+    },
+    {
+      "Id": 2,
+      "OrderId": 1,
+      "ProductId": 3,
+      "Quantity": 1,
+      "UnitPrice": 49.5
+    },
+    {
+      "Id": 3,
+      "OrderId": 2,
+      "ProductId": 4,
+      "Quantity": 2,
+      "UnitPrice": 12.35
+    }
+  ]
+}

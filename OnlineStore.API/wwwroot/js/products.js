@@ -1,5 +1,6 @@
 import { api } from './api.js';
 import { cart } from './cart-store.js';
+import { photoFor, imageAlt } from './product-images.js';
 import { el, icon, money, imageFor, toast, empty, heading, breadcrumbs, quantityControl } from './ui.js';
 
 function addToCart(product, quantity = 1) {
@@ -14,7 +15,7 @@ function productCard(product, categories) {
   const category = categories.find(c => c.id === product.categoryId)?.name || 'პროდუქტი';
   const button = el('button', { class: 'button add-button', disabled: product.stockQuantity === 0, onClick: () => addToCart(product), 'aria-label': `${product.name} კალათაში დამატება` }, icon('plus'), 'კალათაში');
   return el('article', { class: 'product-card' },
-    el('a', { class: 'product-image', href: `/products/${product.id}`, 'aria-label': `${product.name} დეტალები` }, el('img', { src: imageFor(product), alt: `${product.name} — საილუსტრაციო გამოსახულება`, loading: 'lazy', width: 420, height: 300 }),
+    el('a', { class: 'product-image', href: `/products/${product.id}`, 'aria-label': `${product.name} დეტალები` }, el('img', { src: imageFor(product), alt: imageAlt(product), class: photoFor(product) ? 'real-photo' : null, loading: 'lazy', width: 420, height: 300 }),
       product.stockQuantity === 0 && el('span', { class: 'sold-out' }, 'ამოწურულია')),
     el('div', { class: 'product-info' }, el('span', { class: 'category-label' }, category),
       el('h3', {}, el('a', { href: `/products/${product.id}` }, product.name)),
@@ -73,8 +74,14 @@ export async function renderProduct(main, id) {
   const quantityPicker = quantityControl(1, product.stockQuantity);
   const category = categories.find(c => c.id === product.categoryId);
   const available = product.stockQuantity > 0;
+  const photo = photoFor(product);
+  const caption = photo
+    ? el('small', {}, 'ფოტო: ', el('a', { href: photo.source, target: '_blank', rel: 'noopener noreferrer' }, photo.author), ' · ',
+      el('a', { href: photo.licenseUrl, target: '_blank', rel: 'noopener noreferrer' }, photo.license),
+      ' · ზომა/ფორმატი შეცვლილია; თეთრი ჩარჩო. ', el('a', { href: '/images/products/credits.html' }, 'წყაროები და პირობები'))
+    : el('small', {}, 'დროებითი საილუსტრაციო გამოსახულება — ზუსტი მოდელის ნებადართული ფოტო ჯერ არ არის.');
   main.replaceChildren(breadcrumbs(product.name), el('section', { class: 'product-detail' },
-    el('div', { class: 'detail-image' }, el('img', { src: imageFor(product), alt: `${product.name} — საილუსტრაციო გამოსახულება`, width: 600, height: 430 }), el('small', {}, 'საილუსტრაციო გამოსახულება')),
+    el('div', { class: 'detail-image' }, el('img', { src: imageFor(product), alt: imageAlt(product), class: photo ? 'real-photo' : null, width: 600, height: 430 }), caption),
     el('div', { class: 'detail-copy' }, el('a', { class: 'category-label', href: `/products?categoryId=${product.categoryId}` }, category?.name || 'კატეგორია'), el('h1', {}, product.name), el('p', { class: 'detail-description' }, product.description || 'ამ პროდუქტისთვის დამატებითი აღწერა არ არის მითითებული.'),
       el('strong', { class: 'detail-price' }, money(product.price)), el('p', { class: `stock ${available ? '' : 'unavailable'}` }, available ? `${product.stockQuantity} ცალი ხელმისაწვდომია` : 'მარაგი ამოწურულია'),
       available && el('div', { class: 'purchase-controls' }, quantityPicker, el('button', { class: 'button', onClick: () => addToCart(product, Number(quantityPicker.querySelector('input').value)) }, icon('bag'), 'კალათაში დამატება')),
