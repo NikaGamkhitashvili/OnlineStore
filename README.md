@@ -2,6 +2,8 @@
 
 ტექნოლოგიური პროდუქტების ონლაინ მაღაზია - უნივერსიტეტის ფინალური პროექტი. მოიცავს ვებინტერფეისს, REST API-სა და SQL Server მონაცემთა ბაზას.
 
+**ონლაინ დემო:** [OnlineStore](https://onlinestore-nikagamkhitashvili.onrender.com/) — Render Free + MonsterASP.NET SQL Server. უმოქმედობის შემდეგ პირველი გახსნა შეიძლება დაგვიანდეს.
+
 **ტექნოლოგიები:** C# · .NET 10 · ASP.NET Core Web API · Entity Framework Core · SQL Server · HTML/CSS/JavaScript · Swagger
 
 ![OnlineStore კატალოგი](verification/DummyJsonCatalog.png)

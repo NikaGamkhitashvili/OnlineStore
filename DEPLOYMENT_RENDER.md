@@ -1,6 +1,6 @@
 # Render-ზე განთავსება
 
-აპლიკაცია: Docker Web Service, Free გეგმა, Frankfurt, პორტი 10000. Frontend და API ერთ სერვისშია. SQL Server ბაზა ცალკე, მაგალითად Azure SQL-ის ანგარიშისთვის ხელმისაწვდომი უფასო შეთავაზებით. `localhost` და Windows Authentication ღრუბელში კავშირის ვარიანტი არ არის.
+აპლიკაცია: Render Docker Web Service, Free გეგმა, Frankfurt, პორტი 10000. Frontend და API ერთ სერვისშია; SQL Server ბაზა MonsterASP.NET-ის Free გეგმაზეა. `localhost` და Windows Authentication ღრუბელში კავშირის ვარიანტი არ არის.
 
 ## მომზადებული ფაილები
 
@@ -17,7 +17,7 @@ Render Dashboard → New → Blueprint → GitHub `NikaGamkhitashvili/OnlineStor
 |---|---|
 | ASPNETCORE_ENVIRONMENT | Production |
 | Hosting__RenderProxy | true, მხოლოდ Render-ის ingress-ის უკან |
-| ConnectionStrings__OnlineStoreDb | ღრუბლის SQL კავშირი, TLS და სანდო სერტიფიკატის შემოწმებით |
+| ConnectionStrings__OnlineStoreDb | MonsterASP-ის SQL კავშირი; მხოლოდ Render-ის secret კონფიგურაციაში |
 | Admin__Username | admin ან არჩეული სახელი |
 | Admin__Password | პირადი ძლიერი პაროლი, მინიმუმ 16 სიმბოლო; მხოლოდ secret გარემოს კონფიგურაციაში |
 | SeedData__Enabled | false |
@@ -35,18 +35,24 @@ Data Protection-ის გასაღებები Render Free-ის დრ�
 
 თუ ახალ ცარიელ ბაზაზე მიგრაციებით მუშაობა აირჩევა, EF სქემას ქმნის, მონაცემები ცალკე უნდა ჩაიტვირთოს. startup-ზე მიგრაციები და seed ავტომატურად არ ეშვება; Production-ში DummyJSON-ის იმპორტი გამორთულია. გადატანის შემდეგ გადაამოწმეთ ყველა მიგრაცია, 68 პროდუქტი, 12 კატეგორია და შენარჩუნებული შეკვეთები.
 
-Azure SQL firewall-ში მხოლოდ საჭირო Render outbound დიაპაზონები დაუშვით: service → Connect → Outbound. Microsoft Entra/SQL ადმინისტრატორის უფლებები და ახალი credential-ები მომხმარებელმა თავად უნდა დაადასტუროს. უფასო SQL შეთავაზებაზე ლიმიტის ამოწურვის ქცევა იყოს Auto-pause until next month; ფასიანი რესურსი შეთანხმების გარეშე არ იქმნება.
+MonsterASP-ის ახალ ცარიელ ბაზაში ასლი Microsoft SqlPackage Import-ით გადატანილია: 68 პროდუქტი, 12 კატეგორია, 3 მომხმარებელი, 3 შეკვეთა, 4 შეკვეთის პოზიცია, 38 იმპორტის ჩანაწერი და 3 EF მიგრაცია. ლოკალური ბაზა შენარჩუნებულია. Remote Access ჩართულია მომხმარებლის თანხმობით. პროვაიდერის მითითებით გამოიყენება `Encrypt=True;TrustServerCertificate=True`; კავშირი დაშიფრულია, თუმცა სერტიფიკატის ნდობის შემოწმება გამორთულია, რაც მომხმარებელმა ცალკე დაადასტურა. პაროლი დოკუმენტაციაში არ ინახება.
 
 ## შემოწმება
 
 - `dotnet restore`, Debug build და Release publish შესრულებულია.
 - 77 .NET ტესტი და 16 JavaScript ტესტი წარმატებულია, მათ შორის Production ავტორიზაცია, CSRF სათაური, rate limit, cookie/logout და Render HTTPS proxy.
 - `Testing` გარემოში არსებული იზოლირებული უნივერსიტეტის API ტესტების ძველი კონტრაქტები შენარჩუნებულია; Production/Development ამ გამონაკლისს არ იყენებს. დაცვა ცალკე რეალურ Production კონფიგურაციაშია ტესტირებული.
-- ლოკალური Docker CLI არ არის ხელმისაწვდომი; Docker image-ის რეალური build/deploy Render-ის ანგარიშის მომზადების შემდეგ უნდა შემოწმდეს.
+- Render-ზე Docker image-ის build და deployment წარმატებით დასრულდა, commit `4d4abcc`, 2026-10-31.
 - `/health` მხოლოდ აპლიკაციის პროცესის სიცოცხლეს ამოწმებს; SQL კავშირი დამატებით `/api/products`-ით და დაცული ოპერაციებით გადაამოწმეთ.
 - Swagger ხელმისაწვდომია მხოლოდ Development-ში; Production `/swagger` 404 მოსალოდნელია.
 - საბოლოო ონლაინ სტატუსი მხოლოდ წარმატებული deployment-ისა და რეალური URL/API/SQL შემოწმების შემდეგ დასტურდება.
 
-Render-ის email verification, GitHub-ის რეპოზიტორიის წვდომა, Azure ანგარიში და უფასო SQL შეთავაზების ხელმისაწვდომობა ანგარიშის მხარეს უნდა დასრულდეს. მხოლოდ კოდის ატვირთვა საიტის წარმატებულ განთავსებას არ ნიშნავს.
+ონლაინ მისამართი: https://onlinestore-nikagamkhitashvili.onrender.com/
+
+რეალური შემოწმება: `/health` 200; `/api/products` 200 და 68 ჩანაწერი; `/api/categories` 200 და 12 ჩანაწერი; `/api/products?categoryId=7` 200 და 5 მაუსი. ანონიმური `/api/customers` და `/api/orders` 401; `/api/auth/session` 200 და `authenticated:false`; Production `/swagger/index.html` 404. ბრაუზერში კატალოგი ჩაიტვირთა, Mice ფილტრი და კალათაში დამატება მუშაობს, `/admin` შესვლის ფორმას აჩვენებს. მომხმარებლის მიერ დაყენებული პაროლით შესვლა ამ შემოწმების ფარგლებში არ შესრულებულა; ღრუბლის ბაზაში სატესტო შეკვეთები არ შექმნილა.
+
+Render Free უმოქმედობისას იძინებს; შემდგომი პირველი მოთხოვნა შეიძლება 50 წამზე მეტხანს გაგრძელდეს. ბაზა გარე SQL Server-ზეა და Render-ის restart მას არ შლის. ახალი იმპორტირებული პროდუქტების ნულოვანი მარაგი არსებული დემო პოლიტიკაა; თანხები/მარაგი განთავსებისას არ შეცვლილა. ლოკალური და ღრუბლის ბაზები დამოუკიდებელი ასლებია.
+
+Render და MonsterASP ანგარიშები მომზადებულია; Azure არ გამოიყენება. მხოლოდ კოდის ატვირთვა საიტის წარმატებულ განთავსებას არ ნიშნავს.
 
 წყაროები: [Render Docker](https://render.com/docs/docker), [Blueprint](https://render.com/docs/blueprint-spec), [Free limits](https://render.com/docs/free), [Outbound IP](https://render.com/docs/outbound-ip-addresses).

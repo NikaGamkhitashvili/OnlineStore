@@ -1,5 +1,5 @@
 {
-  "deployment": "BLOCKED_AZURE_STUDENT_VERIFICATION",
+  "deployment": "LIVE_VERIFIED",
   "dotnetTests": {
     "total": "77",
     "executed": "77",
@@ -20,9 +20,8 @@
   },
   "javascriptTestsPassed": 16,
   "releasePublish": "PASS",
-  "dockerImageBuild": "NOT RUN: Docker CLI unavailable locally",
-  "renderDeployment": "NOT RUN",
-  "azureSqlImport": "NOT RUN",
+  "dockerImageBuild": "PASS: Render Docker build",
+  "renderDeployment": "PASS: Live",
   "localDatabaseExport": "PASS: ignored BACPAC in tmp/",
   "publicProductCount": 68,
   "anonymousCustomersStatus": 401,
@@ -36,10 +35,10 @@
     "ProductImports": 38
   },
   "notes": [
-    "Azure academic verification must be completed by the user.",
-    "Database connection and administrator password are not configured in Render yet.",
-    "No paid resources or public service created.",
-    "Local database exported without changing existing records."
+    "MonsterASP.NET Free SQL import verified; local database preserved.",
+    "Render Free Frankfurt deployed with seeding disabled and secrets stored only in environment.",
+    "Anonymous customer and order APIs return 401; admin page displays login.",
+    "Admin password login and cloud database writes were not exercised."
   ],
   "renderAccount": "SIGNED IN",
   "gitHubConnection": "CONNECTED",
@@ -49,7 +48,19 @@
     "plan": "free",
     "autoDeploy": "off",
     "health": "/health",
-    "created": false
+    "created": true
   },
-  "azureAccount": "SIGNED IN; no active subscription; academic email verification pending"
+  "url": "https://onlinestore-nikagamkhitashvili.onrender.com/",
+  "deployedCommit": "4d4abccaf516cc3beedf0465074b9dcf84e13db5",
+  "cloudDatabase": {
+    "migrations": 3,
+    "categories": 12,
+    "import": "PASS",
+    "customers": 3,
+    "orderItems": 4,
+    "productImports": 38,
+    "provider": "MonsterASP.NET Free",
+    "products": 68,
+    "orders": 3
+  }
 }
