@@ -1,3 +1,4 @@
+import { specificationsFor } from './product-specifications.js?v=specs-1';
 import { api } from './api.js?v=render-1';
 import { cart } from './cart-store.js?v=render-1';
 import { photoFor, imageAlt } from './product-images.js?v=render-1';
@@ -122,6 +123,10 @@ export async function renderProduct(main, id) {
       !available && el('button', { class: 'button', disabled: true }, 'ამჟამად არ არის მარაგში'),
       wishlistButton(product),
       el('div', { class: 'detail-note' }, icon('box'), el('p', {}, 'რაოდენობასა და საბოლოო თანხას შეკვეთის გაფორმებისას გადავამოწმებთ.')))));
+  const specs = el('dl', { class: 'product-specs' });
+  for (const [label, value] of specificationsFor(product, category?.name))
+    specs.append(el('dt', {}, label), el('dd', {}, value));
+  main.append(el('section', { class: 'source-details', 'aria-label': 'მახასიათებლები' }, el('h2', {}, 'მახასიათებლები'), specs));
 }
 
 export async function renderWishlist(main) {
