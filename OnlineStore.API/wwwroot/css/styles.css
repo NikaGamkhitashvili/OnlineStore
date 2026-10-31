@@ -1810,3 +1810,8 @@ dialog::backdrop {
 @media(max-width:600px) { .product-specs { grid-template-columns:1fr; gap:6px; } .product-specs dd { margin-bottom:12px; } }
 
 .admin-form:has(input[name='password']) > button[type='submit'] { margin-top: 16px; }
+
+.product-card { display: flex; flex-direction: column; }
+.product-info { display: flex; flex-direction: column; flex: 1; }
+.product-card-bottom { margin-top: auto; padding-top: 20px; }
+.product-info > .wishlist-button { align-self: flex-start; }
