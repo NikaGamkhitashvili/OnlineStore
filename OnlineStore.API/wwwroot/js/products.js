@@ -115,13 +115,6 @@ export async function renderProduct(main, id) {
   const source = sourceFor(product);
   const images = sourceImages(product);
   const photo = photoFor(product);
-  const caption = source
-    ? el('small', {}, 'პროდუქტის ფოტოები და დემო მეტამონაცემები: DummyJSON. წყაროს მარაგი მაღაზიის მარაგი არ არის.')
-    : photo
-    ? el('small', {}, 'ფოტო: ', el('a', { href: photo.source, target: '_blank', rel: 'noopener noreferrer' }, photo.author), ' · ',
-      el('a', { href: photo.licenseUrl, target: '_blank', rel: 'noopener noreferrer' }, photo.license),
-      ' · ზომა/ფორმატი შეცვლილია; თეთრი ჩარჩო. ', el('a', { href: '/images/products/credits.html' }, 'წყაროები და პირობები'))
-    : el('small', {}, 'დროებითი საილუსტრაციო გამოსახულება — ზუსტი მოდელის ნებადართული ფოტო ჯერ არ არის.');
   const mainImage = el('img', { src: imageFor(product), alt: imageAlt(product), class: photo || images.length ? 'real-photo' : null, width: 600, height: 430 });
   const thumbnails = el('div', { class: 'product-gallery', 'aria-label': 'პროდუქტის ფოტოები' });
   images.forEach((src, index) => thumbnails.append(el('button', { class: 'gallery-choice', 'aria-label': `${product.name} ფოტო ${index + 1}`, 'aria-pressed': index === 0, onClick: event => {
@@ -129,7 +122,7 @@ export async function renderProduct(main, id) {
     thumbnails.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button === event.currentTarget)));
   } }, el('img', { src, alt: '', width: 64, height: 64, loading: 'lazy' }))));
   main.replaceChildren(breadcrumbs(product.name), el('section', { class: 'product-detail' },
-    el('div', { class: 'detail-image' }, mainImage, thumbnails, caption),
+    el('div', { class: 'detail-image' }, mainImage, thumbnails),
     el('div', { class: 'detail-copy' }, el('a', { class: 'category-label', href: `/products?categoryId=${product.categoryId}` }, categoryLabel(category?.name) || 'კატეგორია'), el('h1', {}, product.name), el('p', { class: 'detail-description' }, product.description || 'ამ პროდუქტისთვის დამატებითი აღწერა არ არის მითითებული.'),
       brandFor(product) && el('p', {}, `ბრენდი: ${brandFor(product)}`), ratingLabel(product),
       el('strong', { class: 'detail-price' }, money(product.price)), el('p', { class: `stock ${available ? '' : 'unavailable'}` }, available ? `${product.stockQuantity} ცალი ხელმისაწვდომია` : 'მარაგი ამოწურულია'),
