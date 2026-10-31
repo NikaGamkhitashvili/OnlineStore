@@ -1808,3 +1808,5 @@ dialog::backdrop {
 .product-reviews article { padding:20px 0; border-bottom:1px solid #d9e0d5; }
 .product-card h3 { overflow-wrap:anywhere; }
 @media(max-width:600px) { .product-specs { grid-template-columns:1fr; gap:6px; } .product-specs dd { margin-bottom:12px; } }
+
+.admin-form:has(input[name='password']) > button[type='submit'] { margin-top: 16px; }
