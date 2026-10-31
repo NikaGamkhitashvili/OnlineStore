@@ -5,6 +5,13 @@ import { catalogPage, sourceFor, sourceImages, ratingFor, brandFor } from './cat
 import { wishlist } from './wishlist-store.js?v=render-1';
 import { el, icon, money, imageFor, toast, empty, heading, breadcrumbs, quantityControl } from './ui.js?v=render-1';
 
+const categoryLabel = name => ({
+  Laptops: 'ლეპტოპები',
+  'Computers and Monitors': 'კომპიუტერები და მონიტორები',
+  Keyboards: 'კლავიატურები', Mice: 'მაუსები', Headphones: 'ყურსასმენები',
+  'Other Accessories': 'სხვა აქსესუარები', Smartphones: 'სმარტფონები',
+  Tablets: 'ტაბლეტები', 'Mobile Accessories': 'მობილურის აქსესუარები'
+}[name] || name);
 function addToCart(product, quantity = 1) {
   try {
     cart.add(product, quantity);
@@ -30,7 +37,7 @@ function ratingLabel(product) {
 }
 
 function productCard(product, categories) {
-  const category = categories.find(c => c.id === product.categoryId)?.name || 'პროდუქტი';
+  const category = categoryLabel(categories.find(c => c.id === product.categoryId)?.name) || 'პროდუქტი';
   const button = el('button', { class: 'button add-button', disabled: product.stockQuantity === 0, onClick: () => addToCart(product), 'aria-label': `${product.name} კალათაში დამატება` }, icon('plus'), 'კალათაში');
   return el('article', { class: 'product-card' },
     el('a', { class: 'product-image', href: `/products/${product.id}`, 'aria-label': `${product.name} დეტალები` }, el('img', { src: imageFor(product), alt: imageAlt(product), class: photoFor(product) || sourceImages(product).length ? 'real-photo' : null, loading: 'lazy', width: 420, height: 300 }),
@@ -61,7 +68,7 @@ export async function renderCatalog(main, home) {
   const count = el('p', { class: 'result-count', role: 'status' });
   const grid = el('div', { class: 'product-grid' });
   const categoryList = el('div', { class: 'category-list' });
-  const categoryChoices = [{ id: 0, name: 'ყველა პროდუქტი' }, ...categories];
+  const categoryChoices = [{ id: 0, name: 'ყველა პროდუქტი' }, ...categories.filter(c => products.some(p => p.categoryId === c.id))];
   function chooseCategory(id) { activeCategory = id; page = 1; update(); }
   function update() {
     const query = search.value.trim().toLocaleLowerCase();
@@ -70,7 +77,7 @@ export async function renderCatalog(main, home) {
     count.textContent = `ნაპოვნია ${result.total} პროდუქტი · გვერდი ${page} / ${result.pages}`;
     grid.replaceChildren(...visible.map(p => productCard(p, categories)));
     if (!visible.length) grid.replaceChildren(empty('პროდუქტი ვერ მოიძებნა', 'შეცვალე საძიებო სიტყვა ან კატეგორია.', '/products', 'ფილტრების გასუფთავება'));
-    categoryList.replaceChildren(...categoryChoices.map(c => el('button', { class: activeCategory === c.id ? 'category-filter active' : 'category-filter', 'aria-pressed': activeCategory === c.id, onClick: () => chooseCategory(c.id) }, el('span', {}, c.name), el('span', { class: 'category-count' }, c.id ? products.filter(p => p.categoryId === c.id).length : products.length))));
+    categoryList.replaceChildren(...categoryChoices.map(c => el('button', { class: activeCategory === c.id ? 'category-filter active' : 'category-filter', 'aria-pressed': activeCategory === c.id, onClick: () => chooseCategory(c.id) }, el('span', {}, categoryLabel(c.name)), el('span', { class: 'category-count' }, c.id ? products.filter(p => p.categoryId === c.id).length : products.length))));
     const url = new URL(location.href);
     activeCategory ? url.searchParams.set('categoryId', activeCategory) : url.searchParams.delete('categoryId');
     query ? url.searchParams.set('search', search.value.trim()) : url.searchParams.delete('search');
@@ -123,7 +130,7 @@ export async function renderProduct(main, id) {
   } }, el('img', { src, alt: '', width: 64, height: 64, loading: 'lazy' }))));
   main.replaceChildren(breadcrumbs(product.name), el('section', { class: 'product-detail' },
     el('div', { class: 'detail-image' }, mainImage, thumbnails, caption),
-    el('div', { class: 'detail-copy' }, el('a', { class: 'category-label', href: `/products?categoryId=${product.categoryId}` }, category?.name || 'კატეგორია'), el('h1', {}, product.name), el('p', { class: 'detail-description' }, product.description || 'ამ პროდუქტისთვის დამატებითი აღწერა არ არის მითითებული.'),
+    el('div', { class: 'detail-copy' }, el('a', { class: 'category-label', href: `/products?categoryId=${product.categoryId}` }, categoryLabel(category?.name) || 'კატეგორია'), el('h1', {}, product.name), el('p', { class: 'detail-description' }, product.description || 'ამ პროდუქტისთვის დამატებითი აღწერა არ არის მითითებული.'),
       brandFor(product) && el('p', {}, `ბრენდი: ${brandFor(product)}`), ratingLabel(product),
       el('strong', { class: 'detail-price' }, money(product.price)), el('p', { class: `stock ${available ? '' : 'unavailable'}` }, available ? `${product.stockQuantity} ცალი ხელმისაწვდომია` : 'მარაგი ამოწურულია'),
       available && el('div', { class: 'purchase-controls' }, quantityPicker, el('button', { class: 'button', onClick: () => addToCart(product, Number(quantityPicker.querySelector('input').value)) }, icon('bag'), 'კალათაში დამატება')),
