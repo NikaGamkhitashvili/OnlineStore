@@ -1,7 +1,7 @@
 import { api } from './api.js?v=render-1';
 import { cart } from './cart-store.js?v=render-1';
 import { photoFor, imageAlt } from './product-images.js?v=render-1';
-import { catalogPage, sourceFor, sourceImages, ratingFor, brandFor } from './catalog-data.js?v=render-1';
+import { catalogPage, sourceImages, brandFor } from './catalog-data.js?v=render-1';
 import { wishlist } from './wishlist-store.js?v=render-1';
 import { el, icon, money, imageFor, toast, empty, heading, breadcrumbs, quantityControl } from './ui.js?v=render-1';
 
@@ -29,13 +29,6 @@ function wishlistButton(product) {
   update(); return button;
 }
 
-function ratingLabel(product) {
-  const source = sourceFor(product);
-  return el('div', { class: 'product-source-summary' },
-    ratingFor(product) !== null && el('span', {}, `შეფასება ${ratingFor(product)} / 5`),
-    source?.discountPercentage > 0 && el('small', {}, `წყაროს დემო ფასდაკლება: ${source.discountPercentage}%`));
-}
-
 function productCard(product, categories) {
   const category = categoryLabel(categories.find(c => c.id === product.categoryId)?.name) || 'პროდუქტი';
   const button = el('button', { class: 'button add-button', disabled: product.stockQuantity === 0, onClick: () => addToCart(product), 'aria-label': `${product.name} კალათაში დამატება` }, icon('plus'), 'კალათაში');
@@ -44,7 +37,7 @@ function productCard(product, categories) {
       product.stockQuantity === 0 && el('span', { class: 'sold-out' }, 'ამოწურულია')),
     el('div', { class: 'product-info' }, el('span', { class: 'category-label' }, category),
       el('h3', {}, el('a', { href: `/products/${product.id}` }, product.name)),
-      brandFor(product) && el('small', { class: 'muted' }, brandFor(product)), ratingLabel(product),
+      brandFor(product) && el('small', { class: 'muted' }, brandFor(product)),
       el('span', { class: `stock ${product.stockQuantity ? '' : 'unavailable'}` }, product.stockQuantity ? `${product.stockQuantity} ცალი მარაგში` : 'ამჟამად არ არის მარაგში'),
       el('div', { class: 'product-card-bottom' }, el('strong', { class: 'price' }, money(product.price)), button), wishlistButton(product)));
 }
@@ -112,7 +105,6 @@ export async function renderProduct(main, id) {
   const quantityPicker = quantityControl(1, product.stockQuantity);
   const category = categories.find(c => c.id === product.categoryId);
   const available = product.stockQuantity > 0;
-  const source = sourceFor(product);
   const images = sourceImages(product);
   const photo = photoFor(product);
   const mainImage = el('img', { src: imageFor(product), alt: imageAlt(product), class: photo || images.length ? 'real-photo' : null, width: 600, height: 430 });
@@ -124,31 +116,12 @@ export async function renderProduct(main, id) {
   main.replaceChildren(breadcrumbs(product.name), el('section', { class: 'product-detail' },
     el('div', { class: 'detail-image' }, mainImage, thumbnails),
     el('div', { class: 'detail-copy' }, el('a', { class: 'category-label', href: `/products?categoryId=${product.categoryId}` }, categoryLabel(category?.name) || 'კატეგორია'), el('h1', {}, product.name), el('p', { class: 'detail-description' }, product.description || 'ამ პროდუქტისთვის დამატებითი აღწერა არ არის მითითებული.'),
-      brandFor(product) && el('p', {}, `ბრენდი: ${brandFor(product)}`), ratingLabel(product),
+      brandFor(product) && el('p', {}, `ბრენდი: ${brandFor(product)}`),
       el('strong', { class: 'detail-price' }, money(product.price)), el('p', { class: `stock ${available ? '' : 'unavailable'}` }, available ? `${product.stockQuantity} ცალი ხელმისაწვდომია` : 'მარაგი ამოწურულია'),
       available && el('div', { class: 'purchase-controls' }, quantityPicker, el('button', { class: 'button', onClick: () => addToCart(product, Number(quantityPicker.querySelector('input').value)) }, icon('bag'), 'კალათაში დამატება')),
       !available && el('button', { class: 'button', disabled: true }, 'ამჟამად არ არის მარაგში'),
       wishlistButton(product),
       el('div', { class: 'detail-note' }, icon('box'), el('p', {}, 'რაოდენობასა და საბოლოო თანხას შეკვეთის გაფორმებისას გადავამოწმებთ.')))));
-  if (source) {
-    const specs = el('dl', { class: 'product-specs' });
-    const fields = {
-      id: 'DummyJSON ID', category: 'წყაროს კატეგორია', sku: 'SKU', stock: 'წყაროს საცდელი მარაგი (არ იყიდება)',
-      availabilityStatus: 'წყაროს დემო ხელმისაწვდომობა', warrantyInformation: 'წყაროს დემო გარანტია', shippingInformation: 'წყაროს დემო მიწოდება',
-      returnPolicy: 'წყაროს დემო დაბრუნების პირობა', minimumOrderQuantity: 'წყაროს დემო მინიმალური რაოდენობა', weight: 'წონა (წყაროს ერთეული)',
-      dimensions: 'ზომები (წყაროს ერთეული)', tags: 'ტეგები', price: 'წყაროს ფასი (USD-ის დაშვებით)', discountPercentage: 'წყაროს დემო ფასდაკლება (%)'
-    };
-    for (const [key, label] of Object.entries(fields)) if (source[key] !== undefined && source[key] !== null)
-      specs.append(el('dt', {}, label), el('dd', {}, typeof source[key] === 'object' ? JSON.stringify(source[key]) : source[key]));
-    const reviews = el('section', { class: 'product-reviews' }, el('h2', {}, 'წყაროს დემო შეფასებები'));
-    if (!source.reviews?.length) reviews.append(el('p', {}, 'შეფასება არ არის მოწოდებული.'));
-    for (const review of source.reviews || []) reviews.append(el('article', {},
-      el('strong', {}, review.reviewerName || 'სახელი არ არის მითითებული'),
-      el('p', {}, review.rating === undefined ? '' : `${review.rating} / 5`, review.date ? ` · ${review.date.slice(0,10)}` : ''), el('p', {}, review.comment || '')));
-    main.append(el('section', { class: 'source-details' }, el('h2', {}, 'მახასიათებლები და წყაროს ინფორმაცია'),
-      el('p', { class: 'muted' }, 'ეს ინფორმაცია DummyJSON-ის სასწავლო მონაცემებია და მაღაზიის გარანტიის ან მიწოდების დაპირებას არ წარმოადგენს. GEL ფასი მაღაზიაში ცალკე იმართება; წყაროს ფასდაკლება დამატებით არ გამოიქვითება.'), specs,
-      el('details', {}, el('summary', {}, 'წყაროს სრული მეტამონაცემები'), el('pre', { class: 'source-json' }, JSON.stringify(source, null, 2)))), reviews);
-  }
 }
 
 export async function renderWishlist(main) {
