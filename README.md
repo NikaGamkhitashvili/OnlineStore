@@ -1,8 +1,8 @@
 # OnlineStore
 
-ტექნოლოგიური პროდუქტების ონლაინ მაღაზია - უნივერსიტეტის ფინალური პროექტი. მოიცავს ვებინტერფეისს, REST API-სა და SQL Server მონაცემთა ბაზას.
+პროდუქტების ონლაინ მაღაზია -  ფინალური პროექტი. მოიცავს ვებინტერფეისს, REST API-სა და SQL Server მონაცემთა ბაზას.
 
-**ონლაინ დემო:** [OnlineStore](https://onlinestore-nikagamkhitashvili.onrender.com/) — Render Free + MonsterASP.NET SQL Server. უმოქმედობის შემდეგ პირველი გახსნა შეიძლება დაგვიანდეს.
+**ონლაინ დემო:** [OnlineStore](https://onlinestore-nikagamkhitashvili.onrender.com/) — Render Free + MonsterASP.NET SQL Server. 15წუთიანი უმოქმედობის შემდეგ დრო სჭირდება სერვერის ჩატვირთვას.
 
 **ტექნოლოგიები:** C# · .NET 10 · ASP.NET Core Web API · Entity Framework Core · SQL Server · HTML/CSS/JavaScript · Swagger
 
@@ -39,9 +39,9 @@ dotnet run --project OnlineStore.API --launch-profile https --no-build
 
 Visual Studio-ში გახსენით `OnlineStore.sln`, Startup Project-ად აირჩიეთ **OnlineStore.API** და გაუშვით **https** პროფილით.
 
-**მაღაზია:** [https://localhost:7156](https://localhost:7156/) · **Swagger:** [https://localhost:7156/swagger](https://localhost:7156/swagger)
+·**Swagger:** [https://localhost:7156/swagger](https://localhost:7156/swagger) არ გაიხსნება ეს.
 
-Development რეჟიმში საწყისი დემო მონაცემები ავტომატურად ემატება. დამატებითი პროდუქტების ჩასატვირთად `/admin` გვერდზე გამოიყენეთ **DummyJSON სინქრონიზაცია**. განმეორებითი იმპორტი დუბლიკატებს არ ქმნის და მაღაზიის ფასებსა და მარაგს ინარჩუნებს.
+Development რეჟიმში საწყისი დემო მონაცემები ავტომატურად ემატება. დამატებითი პროდუქტების ჩასატვირთად `/admin` გვერდზე გამოიყენეთ **DummyJSON სინქრონიზაცია**. განმეორებითი იმპორტი დუბლიკატებს არ ქმნის და მაღაზიის ფასებსა და მარაგს ინარჩუნებს. ვინც შეამოწმებს ამ საიტს თუ კონკრეტულად Demo(adminს) იუზერით დასჭირდება შესვლა პაროლი არის Gamkhitashvilinika
 
 ეს სასწავლო დემოა: ადმინისტრირება, მომხმარებლები და შეკვეთები ადმინისტრატორის შესვლითაა დაცული; რეალური გადახდა არ ხდება. შესვლისთვის დააყენეთ `Admin__Username` და ძლიერი `Admin__Password` მხოლოდ გარემოს საიდუმლო კონფიგურაციაში. იმპორტირებული პროდუქტების მარაგს ადმინისტრატორი მართავს; ახალი ფოტოები ინტერნეტს მოითხოვს. ჰოსტინგი: [Render-ის ინსტრუქცია](DEPLOYMENT_RENDER.md).
 
