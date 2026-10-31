@@ -1,4 +1,4 @@
-// Individually reviewed real photographs. See PHOTO_CREDITS.md.
+// Individually reviewed real photographs. See /images/products/credits.html and sources.json.
 export const productPhotos = {
   "logitech m185": {
     "model": "Logitech M185",

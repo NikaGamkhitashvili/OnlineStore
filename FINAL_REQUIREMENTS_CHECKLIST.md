@@ -103,7 +103,7 @@
 | რეალური პროდუქტები, ძებნა, კატეგორია, ფასი, მარაგი, სურათები | COMPLETE | products.js; ui.js; images/ | browser search/filter/sort/detail + no broken images | PASS |
 | დამატებითი მოთხოვნა: 30 საერთო პროდუქტი, 7/5/5/5/4/4 განაწილება და მონაცემების შენარჩუნება | COMPLETE | Infrastructure/Data/CatalogSeeder.cs; Tests/CatalogSeederTests.cs | იზოლირებული SQL ტესტი; რეალური SQL snapshot შედარება; API 30 detail/search; browser filters/sort/cart | PASS; დაემატა 26 პროდუქტი; 9 კატეგორია ძველი სამის შენარჩუნებით; restart უცვლელია |
 | დამატებითი მოთხოვნა: კატალოგის ტიპების ადგილობრივი სურათები | COMPLETE | wwwroot/js/product-images.js; wwwroot/images/*.svg | 10 JS ტესტი ჯამში; ყველა SVG HTTP 200; რეალური 30 პროდუქტის image mapping | PASS; არსებული დიზაინი შენარჩუნებულია |
-| დამატებითი მოთხოვნა: ზუსტი მოდელების რეალური, ნებადართული ფოტოები | PARTIAL | wwwroot/js/product-photos.js; images/products/; PHOTO_CREDITS.md | ინდივიდუალური Commons წყარო/ავტორი/ლიცენზია; ვიზუალური შემოწმება; SHA-256 | 10 რეალური ფოტო; 20 უცვლელი დროებითი ილუსტრაცია. არასწორი მოდელები და გაურკვეველი უფლებების სურათები არ გამოყენებულა |
+| დამატებითი მოთხოვნა: ზუსტი მოდელების რეალური, ნებადართული ფოტოები | PARTIAL | wwwroot/js/product-photos.js; images/products/; images/products/credits.html | ინდივიდუალური Commons წყარო/ავტორი/ლიცენზია; ვიზუალური შემოწმება; SHA-256 | 10 რეალური ფოტო; 20 უცვლელი დროებითი ილუსტრაცია. არასწორი მოდელები და გაურკვეველი უფლებების სურათები არ გამოყენებულა |
 | ფოტოების ლოკალური ჩვენება, ატრიბუცია და ბიზნესმონაცემების შენარჩუნება | COMPLETE | products.js; cart.js; styles.css; images/products/credits.html | 57 .NET + 11 JS PASS; 30 HTTP image პასუხი; 30 browser detail decode; SQL ხუთი ცხრილის შედარება | PASS; ყველა image-fit contain; ბაზის ჩანაწერები უცვლელია |
 | კალათა: quantity, remove, persistence, estimated total | COMPLETE | cart-store.js; cart.js | 9 Node tests + browser | PASS |
 | Checkout: existing customer, actual DTO, server total, success/errors | COMPLETE | checkout.js | browser Order #2 + SQL; 409 stock race | PASS |
@@ -111,7 +111,7 @@
 | Desktop/tablet/mobile, menu, local font/images, safe text | COMPLETE | styles.css; ui.js; assets | browser 390/768/default width, DOM measurements | PASS |
 | optional exchange-rate display | COMPLETE | app.js; index.html | რეალური footer request | PASS |
 | რეალური წაშლა უშუალოდ ბრაუზერიდან | PARTIAL | admin.js; orders.js | dialog cancellation tested; user declined QA deletion | NOT EXECUTED BY USER REQUEST; isolated SQL DELETE tests PASS |
-| Frontend დოკუმენტაცია და პრეზენტაციის სცენარი | COMPLETE | README.md; FRONTEND_IMPLEMENTATION.md; PROJECT_PRESENTATION.md | source/document review | მზადაა |
+| Frontend დოკუმენტაცია და პრეზენტაციის სცენარი | COMPLETE | README.md; PROJECT_PRESENTATION.md | source/document review | მზადაა |
 
 Frontend-ის უახლესი შედეგებია `verification/FrontendBuild.txt`, `FrontendTests.txt`, `FrontendBrowserVerification.json`, `FrontendSqlFinal.txt` და screenshots. წინა `TestSummary.json`/OnlineStore.trx შეიცავს backend ეტაპის 47 ტესტის ისტორიულ შედეგს; frontend-ის მიმდინარე .NET შედეგია 56, დამატებით 9 Node ტესტი. GitHub და პირადი დაცვა ისევ ცალკე ჩასაბარებელი მოქმედებებია.
 # DummyJSON დამატების მიმდინარე შემოწმება — 2026-10-31

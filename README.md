@@ -54,4 +54,4 @@ node --test scripts/cart-tests.mjs scripts/product-image-tests.mjs scripts/catal
 
 ბოლო შემოწმება: **77 .NET და 16 JavaScript ტესტი წარმატებულია**. SQL ტესტები იზოლირებულ დროებით ბაზებს იყენებს; საჭიროა მათი შექმნა/წაშლის უფლება. Node.js მხოლოდ JavaScript ტესტებისთვისაა საჭირო.
 
-დეტალები: [მოთხოვნების checklist](FINAL_REQUIREMENTS_CHECKLIST.md) · [DummyJSON ინტეგრაცია](DUMMYJSON_INTEGRATION.md) · [პროექტის პრეზენტაცია](PROJECT_PRESENTATION.md) · [ფოტოების წყაროები](PHOTO_CREDITS.md)
+დეტალები: [მოთხოვნების checklist](FINAL_REQUIREMENTS_CHECKLIST.md) · [DummyJSON ინტეგრაცია](DUMMYJSON_INTEGRATION.md) · [პროექტის პრეზენტაცია](PROJECT_PRESENTATION.md) · [ფოტოების წყაროები](OnlineStore.API/wwwroot/images/products/credits.html)

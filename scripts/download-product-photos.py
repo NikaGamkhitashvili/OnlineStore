@@ -116,7 +116,7 @@ def main():
             'originalSha256': hashlib.sha256(raw).hexdigest(),
         }
         print(model + ': ' + str(target.stat().st_size) + ' bytes')
-    output = '// Individually reviewed real photographs. See PHOTO_CREDITS.md.\nexport const productPhotos = '
+    output = '// Individually reviewed real photographs. See /images/products/credits.html and sources.json.\nexport const productPhotos = '
     output += json.dumps(photos, ensure_ascii=False, indent=2) + ';\n'
     (ROOT / 'OnlineStore.API/wwwroot/js/product-photos.js').write_text(output, encoding='utf-8')
     (DEST / 'sources.json').write_text(json.dumps(photos, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
